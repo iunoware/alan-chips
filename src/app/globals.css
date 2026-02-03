@@ -5,11 +5,21 @@
   --foreground: #171717;
 }
 
+@theme {
+  --color-green: #017432;
+  /* 
+    incase of gold gradient use these colors 
+    #e7601e, #fee701, #e7601e
+    orange, gold, orange gradient
+  */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
 }
 
 @media (prefers-color-scheme: dark) {

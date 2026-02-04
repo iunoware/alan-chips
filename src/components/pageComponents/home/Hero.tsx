@@ -11,137 +11,110 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const sinceRef = useRef<HTMLSpanElement>(null);
   const subtextRef = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const productRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLButtonElement>(null);
+  const productWrapperRef = useRef<HTMLDivElement>(null);
   const bagRef = useRef<HTMLDivElement>(null);
   const piece1Ref = useRef<HTMLDivElement>(null);
   const piece2Ref = useRef<HTMLDivElement>(null);
-  const piece3Ref = useRef<HTMLDivElement>(null);
+  const lightGlowRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      // --- PAGE LOAD ANIMATIONS ---
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      // --- INITIAL LOAD ANIMATION ---
+      const tl = gsap.timeline({
+        defaults: { ease: "expo.out", duration: 1.5 },
+      });
 
       tl.fromTo(
         headlineRef.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, delay: 0.5 },
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, delay: 0.2 },
       )
+        .fromTo(sinceRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "-=1.2")
+        .fromTo(subtextRef.current, { y: 30, opacity: 0 }, { y: 0, opacity: 1 }, "-=1.1")
+        .fromTo(ctaRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "-=1")
         .fromTo(
-          subtextRef.current,
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1 },
-          "-=0.8",
-        )
-        .fromTo(
-          buttonRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.6",
-        )
-        .fromTo(
-          [bagRef.current, piece1Ref.current, piece2Ref.current, piece3Ref.current],
-          { y: 100, opacity: 0, scale: 0.9 },
+          [bagRef.current, piece1Ref.current, piece2Ref.current],
+          { y: 100, opacity: 0, scale: 0.95 },
           {
             y: 0,
             opacity: 1,
             scale: 1,
-            duration: 1.5,
-            stagger: 0.2,
-            ease: "power2.out",
+            stagger: 0.15,
+            duration: 2,
+            ease: "power3.out",
           },
-          "-=1.2",
+          "-=1.5",
         );
 
-      // --- FLOATING ANIMATIONS ---
-      // Gentle vertical movement for the main bag
+      // --- FLOATING / ANTI-GRAVITY ANIMATIONS ---
+      // Bag floating
       gsap.to(bagRef.current, {
-        y: -20,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      // Different timings for pieces to feel organic
-      gsap.to(piece1Ref.current, {
-        y: 15,
-        x: 5,
-        rotate: 10,
+        y: -25,
+        rotate: 1,
         duration: 4,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
       });
+
+      // Piece 1 floating
+      gsap.to(piece1Ref.current, {
+        y: 20,
+        x: 10,
+        rotate: 20,
+        duration: 5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 0.2,
+      });
+
+      // Piece 2 floating
       gsap.to(piece2Ref.current, {
-        y: -15,
-        x: -5,
-        rotate: -15,
-        duration: 3.5,
+        y: -20,
+        x: -15,
+        rotate: -30,
+        duration: 4.5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
         delay: 0.5,
       });
-      gsap.to(piece3Ref.current, {
-        y: 10,
-        x: 8,
-        rotate: 5,
-        duration: 4.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 1,
-      });
 
       // --- SCROLL PARALLAX ---
-      gsap.to(".parallax-content", {
+      gsap.to(productWrapperRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: true,
+          scrub: 1.2,
         },
-        y: -100,
+        y: 100,
         ease: "none",
       });
 
-      gsap.to(".parallax-product", {
+      gsap.to(headlineRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: true,
+          scrub: 0.5,
         },
         y: -50,
         ease: "none",
       });
 
-      // --- MOUSE MOVE PARALLAX ---
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e;
-        const xPos = (clientX / window.innerWidth - 0.5) * 2;
-        const yPos = (clientY / window.innerHeight - 0.5) * 2;
-
-        gsap.to(bagRef.current, {
-          x: xPos * 20,
-          y: yPos * 20,
-          duration: 1,
-          ease: "power2.out",
-        });
-
-        gsap.to([piece1Ref.current, piece2Ref.current, piece3Ref.current], {
-          x: (i) => xPos * (30 + i * 10),
-          y: (i) => yPos * (30 + i * 10),
-          duration: 1.5,
-          ease: "power2.out",
-        });
-      };
-
-      window.addEventListener("mousemove", handleMouseMove);
-      return () => window.removeEventListener("mousemove", handleMouseMove);
+      // --- BACKGROUND AMBIENT SHIFT ---
+      gsap.to(lightGlowRef.current, {
+        opacity: 0.6,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
     },
     { scope: containerRef },
   );
@@ -149,123 +122,122 @@ const Hero = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-[#FFFFFF] flex items-center px-8 md:px-20 lg:px-32 selection:bg-[#C5A059]/30"
+      className="relative w-full h-screen min-h-175 overflow-hidden bg-white flex items-center px-8 md:px-20 lg:px-32 selection:bg-green/10"
     >
-      {/* Layer 1: Background Texture/Gradient */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(247,245,242,1)_0%,rgba(255,255,255,1)_100%)] opacity-60" />
-        <div className="absolute inset-0 opacity-[0.02] bg-[url('https://www.transparenttextures.com/patterns/clean-gray-paper.png')]" />
+      {/* BACKGROUND LAYER: Soft Gradient Glows */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div
+          ref={lightGlowRef}
+          className="absolute -top-[10%] -right-[5%] w-[60%] h-[70%] blur-[160px] opacity-40 rounded-full"
+          style={{
+            background: "linear-gradient(135deg, #e7601e 0%, #fee701 50%, #e7601e 100%)",
+          }}
+        />
+        <div
+          className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[50%] blur-[140px] opacity-20 rounded-full"
+          style={{
+            background: "linear-gradient(135deg, #fee701 0%, #e7601e 100%)",
+          }}
+        />
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-7xl mx-auto">
-        {/* Layer 2: Main Content */}
-        <div className="parallax-content flex flex-col justify-center items-start">
-          <span className="text-[#C5A059] font-medium tracking-[0.2em] uppercase text-xs mb-4 block">
-            The South Tamil Nadu Legacy
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 w-full max-w-360 mx-auto items-center">
+        {/* TEXT CONTENT LAYER */}
+        <div className="flex flex-col items-start text-left">
+          <span
+            ref={sinceRef}
+            className="text-[#121212]/50 font-medium tracking-[0.25em] uppercase text-xs md:text-sm mb-6 lg:mb-8"
+          >
+            Since 1960
           </span>
           <h1
             ref={headlineRef}
-            className="text-[#121212] text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight"
+            className="text-[#121212] text-6xl md:text-8xl lg:text-[100px] font-bold leading-none mb-8 tracking-tight"
           >
-            Crafted for Taste. <br />
-            Known for{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#C5A059] to-[#9A7B42]">
-              Quality.
-            </span>
+            The Gold <br />
+            Standard of <br />
+            <span className="text-green">Crunch.</span>
           </h1>
           <p
             ref={subtextRef}
-            className="text-[#444444] text-lg md:text-xl max-w-md leading-relaxed mb-10 font-light"
+            className="text-[#121212]/60 text-lg md:text-xl max-w-md leading-relaxed mb-10 lg:mb-12 font-light"
           >
-            From the heart of South Tamil Nadu to every home. Experience the premium
-            crunch that defines a generation of authentic snack culture.
+            Crafted for the discerning palate. A premium legacy born in Tamil Nadu,
+            celebrated for timeless quality and exceptional taste.
           </p>
           <button
-            ref={buttonRef}
-            className="group relative px-10 py-4 bg-[#121212] text-white rounded-full overflow-hidden transition-all duration-500 hover:pr-14"
+            ref={ctaRef}
+            className="group relative px-12 py-5 bg-green text-white overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_rgba(1,116,50,0.2)]"
           >
-            <span className="relative z-10 font-medium tracking-wide">
-              Explore Our Range
+            <span className="relative z-10 font-bold tracking-widest text-xs uppercase">
+              Discover the Legacy
             </span>
-            <div className="absolute top-0 left-0 w-full h-full bg-[#C5A059] -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0" />
-            <svg
-              className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 z-20"
-              width="18"
-              height="14"
-              viewBox="0 0 18 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11 1L17 7M17 7L11 13M17 7H1"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <div className="absolute inset-0 bg-black/10 translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
           </button>
         </div>
 
-        {/* Layer 3: Product Showcase */}
+        {/* PRODUCT VISUAL LAYER */}
         <div
-          ref={productRef}
-          className="parallax-product relative h-100 lg:h-150 flex items-center justify-center lg:justify-end"
+          ref={productWrapperRef}
+          className="relative h-full flex items-center justify-center lg:justify-end"
         >
-          {/* Main Bag */}
-          <div
-            ref={bagRef}
-            className="relative z-20 w-60 md:w-[320px] lg:w-95 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-transform duration-300"
-          >
-            <Image
-              src="/images/alan_chips_bag.png"
-              alt="Alan Chips Premium Packaging"
-              width={500}
-              height={700}
-              priority
-              className="object-contain"
-            />
-          </div>
+          <div className="relative w-full max-w-125 aspect-4/5">
+            {/* Soft shadow depth */}
+            <div className="absolute inset-0 bg-black/5 blur-[80px] rounded-full scale-75 translate-y-20 opacity-40" />
 
-          {/* Floating Pieces */}
-          <div
-            ref={piece1Ref}
-            className="absolute top-[10%] left-[5%] lg:left-[-10%] z-30 w-16 md:w-24 opacity-90 drop-shadow-lg"
-          >
-            <Image
-              src="/images/alan_chips_pieces.png"
-              alt="Floating Alan Chips Piece"
-              width={200}
-              height={200}
-              className="object-contain rotate-15"
-            />
-          </div>
-          <div
-            ref={piece2Ref}
-            className="absolute bottom-[20%] right-[-5%] lg:right-[-10%] z-10 w-20 md:w-28 opacity-80 drop-shadow-md"
-          >
-            <Image
-              src="/images/alan_chips_pieces.png"
-              alt="Floating Alan Chips Piece"
-              width={200}
-              height={200}
-              className="object-contain -rotate-25 scale-x-[-1]"
-            />
-          </div>
-          <div
-            ref={piece3Ref}
-            className="absolute top-[60%] left-[-2%] lg:left-[-20%] z-30 w-12 md:w-20 opacity-70 blur-[1px]"
-          >
-            <Image
-              src="/images/alan_chips_pieces.png"
-              alt="Floating Alan Chips Piece"
-              width={200}
-              height={200}
-              className="object-contain rotate-40"
-            />
+            {/* Main Product Bag */}
+            <div ref={bagRef} className="relative z-20 w-full h-full">
+              <Image
+                src="/images/alan_chips_bag.png"
+                alt="Alan Chips Premium Packaging"
+                fill
+                priority
+                className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+              />
+            </div>
+
+            {/* Floating Piece 1 */}
+            <div
+              ref={piece1Ref}
+              className="absolute -top-[5%] -left-[10%] z-30 w-24 md:w-40 aspect-square"
+            >
+              <Image
+                src="/images/alan_chips_pieces.png"
+                alt="Golden Chip Detail"
+                fill
+                className="object-contain"
+              />
+            </div>
+
+            {/* Floating Piece 2 */}
+            <div
+              ref={piece2Ref}
+              className="absolute bottom-[10%] -right-[5%] lg:-right-[15%] z-10 w-28 md:w-44 aspect-square"
+            >
+              <Image
+                src="/images/alan_chips_pieces.png"
+                alt="Golden Chip Detail"
+                fill
+                className="object-contain -rotate-45 scale-x-[-1]"
+              />
+            </div>
           </div>
         </div>
       </div>
+
+      {/* MINIMALIST ACCENT: Vertical Indicator */}
+      <div className="absolute left-8 md:left-20 bottom-0 w-px h-32 bg-green/20 hidden lg:block" />
+      <div className="absolute left-8 md:left-20 bottom-36 flex flex-col gap-8 text-[10px] tracking-[0.3em] font-medium text-green/40 uppercase vertical-text lg:flex">
+        <span>PREMIUM</span>
+        <span>AUTHORED</span>
+      </div>
+
+      <style jsx>{`
+        .vertical-text {
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+        }
+      `}</style>
     </section>
   );
 };

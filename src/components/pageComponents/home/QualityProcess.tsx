@@ -5,56 +5,99 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ShoppingCart, Crown, CookingPot, ChefHat, ShieldCheck } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const processSteps = [
+  {
+    icon: "01",
+    title: "Ingredient Selection",
+    svg: <ShoppingCart className="inline text-green" />,
+    description:
+      "Hand-sorting only the finest, farm-fresh potatoes to ensure consistent texture and purity.",
+  },
+  {
+    icon: "02",
+    title: "Natural Preparation",
+    svg: <Crown className="inline text-green" />,
+    description:
+      "Sliced with artisanal precision to maintain the perfect thickness for a signature crunch.",
+  },
+  {
+    icon: "03",
+    title: "Traditional Frying",
+    svg: <CookingPot className="inline text-green" />,
+    description:
+      "Kettle-cooked in small batches using time-honored methods preserved since 1960.",
+  },
+  {
+    icon: "04",
+    title: "Taste Testing",
+    svg: <ChefHat className="inline text-green" />,
+    description:
+      "Every batch is rigorously sampled by our master cuisiners to ensure heritage flavor profiles.",
+  },
+  {
+    icon: "05",
+    title: "Quality Assurance",
+    svg: <ShieldCheck className="inline text-green" />,
+    description:
+      "The final seal of perfection, guaranteeing excellence in every single pack we deliver.",
+    isQA: true,
+  },
+];
 
 const QualityProcess = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const labelRef = useRef<HTMLSpanElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const stepsRootRef = useRef<HTMLDivElement>(null);
+  const promiseRef = useRef<HTMLDivElement>(null);
+  const sensoryRef = useRef<HTMLDivElement>(null);
   const image1Ref = useRef<HTMLDivElement>(null);
   const image2Ref = useRef<HTMLDivElement>(null);
-  const lightGlowRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({
+      // 1. Header Reveal
+      gsap.from(".q-header-content", {
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
+          trigger: headerRef.current,
+          start: "top 85%",
           toggleActions: "play none none reverse",
         },
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        stagger: 0.2,
       });
 
-      tl.fromTo(
-        labelRef.current,
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-      )
-        .fromTo(
-          headlineRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
-          "-=0.7",
-        )
-        .fromTo(
-          textRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-          "-=0.9",
-        );
+      // 2. Process Steps Reveal
+      gsap.from(".process-step-item", {
+        scrollTrigger: {
+          trigger: stepsRootRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+      });
 
-      // Slow parallax for images
+      // 3. Editorial Images Parallax
       gsap.to(image1Ref.current, {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1.5,
+          scrub: 1.2,
         },
-        y: -100,
+        y: -120,
         ease: "none",
       });
 
@@ -63,25 +106,37 @@ const QualityProcess = () => {
           trigger: containerRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1,
+          scrub: 0.6,
         },
-        y: -60,
+        y: 80,
         ease: "none",
       });
 
-      // Ambient lighting glow expansion
-      gsap.fromTo(
-        lightGlowRef.current,
-        { scale: 0.8, opacity: 0 },
-        {
-          scale: 1.2,
-          opacity: 0.15,
-          duration: 3,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
+      // 4. Quality Promise Reveal
+      gsap.from(promiseRef.current, {
+        scrollTrigger: {
+          trigger: promiseRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
         },
-      );
+        scale: 0.98,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power4.out",
+      });
+
+      // 5. Sensory Description Reveal
+      gsap.from(".sensory-text", {
+        scrollTrigger: {
+          trigger: sensoryRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        duration: 2,
+        ease: "power2.inOut",
+        stagger: 0.3,
+      });
     },
     { scope: containerRef },
   );
@@ -89,102 +144,161 @@ const QualityProcess = () => {
   return (
     <section
       ref={containerRef}
-      className="relative overflow-x-clip w-full py-32 md:py-48 lg:py-64 bg-white overflow-hidden selection:bg-green/10"
+      className="relative w-full py-30 md:py-36 bg-[#fafaf9] overflow-x-clip"
     >
-      {/* BACKGROUND ACCENT */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div
-          ref={lightGlowRef}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] blur-[160px] rounded-full opacity-10"
-          style={{
-            background:
-              "radial-gradient(circle, #fee701 0%, #e7601e 50%, transparent 100%)",
-          }}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-360 mx-auto px-8 md:px-20 lg:px-32 grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20 lg:gap-32 items-center">
-        {/* TEXT CONTENT */}
-        <div className="flex flex-col items-start max-w-xl">
-          <span
-            ref={labelRef}
-            className="text-green font-bold tracking-[0.3em] uppercase text-xs mb-6"
-          >
-            Quality & Process
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-16 lg:px-24 flex flex-col gap-32 md:gap-48">
+        {/* 1. Section Header */}
+        <div ref={headerRef} className="max-w-3xl">
+          <span className="q-header-content block text-orange font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-8">
+            The Craft of Excellence
           </span>
-          <h2
-            ref={headlineRef}
-            className="text-[#121212] text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight"
-          >
-            Refined Through <br />
-            Decades.
+          <h2 className="q-header-content text-[#1a1a1a] text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tighter mb-10">
+            Precision in <br />
+            <span className="text-amber-500">Every Batch.</span>
           </h2>
-          <div className="w-12 h-px bg-green/30 mb-8" />
-          <p
-            ref={textRef}
-            className="text-[#121212]/70 text-lg md:text-xl leading-relaxed font-light"
-          >
-            From carefully chosen ingredients to time-tested preparation, every step is
-            handled with intention. Our process hasn&apos;t changed since 1960 because
-            excellence doesn&apos;t need a Shortcut — it only needs discipline.
+          <p className="q-header-content text-[#1a1a1a]/60 text-lg md:text-xl leading-relaxed font-light max-w-xl">
+            Established in 1960, Alan Chips remains dedicated to the art of traditional
+            snack-making. We believe that modern speed can never replace the soul of
+            hand-crafted quality.
           </p>
         </div>
 
-        {/* VISUALS: Staggered Editorial Layout */}
-        <div className="relative w-full flex flex-col items-center">
-          {/* Main Process Image (Potatoes) */}
+        {/* 2. Process Flow & Visuals (Mixed) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
+          {/* Timeline side */}
           <div
-            ref={image1Ref}
-            className="relative w-full max-w-125 aspect-4/5 z-10 shadow-2xl shadow-black/5"
+            ref={stepsRootRef}
+            className="lg:col-span-6 flex flex-col gap-12 md:gap-16"
           >
-            <Image
-              src="/images/potatoes.png"
-              alt="Hand-selected quality potatoes"
-              fill
-              className="object-contain"
-            />
-            {/* Subtle Label for Image */}
-            <div className="absolute -bottom-10 right-0 lg:-right-10 flex items-center gap-4">
-              <span className="text-[10px] tracking-widest font-bold text-green uppercase">
-                01 / Selection
-              </span>
-              <div className="w-12 h-px bg-green/20" />
-            </div>
+            {processSteps.map((step, index) => (
+              <div
+                key={index}
+                className="process-step-item group flex gap-8 md:gap-12 items-start"
+              >
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#ececeb] flex items-center justify-center text-[10px] md:text-xs font-bold text-[#1a1a1a] bg-white shadow-sm transition-colors duration-500 group-hover:border-gold">
+                    {step.icon}
+                  </div>
+                  {index !== processSteps.length - 1 && (
+                    <div className="w-px h-24 md:h-32 bg-linear-to-b from-[#ececeb] to-transparent mt-4" />
+                  )}
+                </div>
+                <div className="pt-2 md:pt-3">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-xl md:text-2xl font-bold text-[#1a1a1a] tracking-tight mb-2">
+                      {step.title} {step.svg}
+                    </h3>
+                    {step.isQA && (
+                      <div className="flex items-center justify-center w-4 h-4 rounded-full bg-green/10">
+                        <svg
+                          className="w-2.5 h-2.5 text-green"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-[#1a1a1a]/50 text-sm md:text-base leading-relaxed max-w-md font-light">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Secondary Process Image (Slices) */}
-          <div
-            ref={image2Ref}
-            className="relative w-full max-w-[320px] aspect-square lg:-mt-20 lg:-ml-40 z-20 shadow-xl shadow-black/10"
-          >
-            <Image
-              src="/images/slices.png"
-              alt="Precise preparation slices"
-              fill
-              className="object-contain"
-            />
-            {/* Subtle Label for Image */}
-            <div className="absolute top-1/2 -left-20 lg:-left-32 -rotate-90 flex items-center gap-4">
-              <span className="text-[10px] tracking-widest font-bold text-[#121212]/40 uppercase whitespace-nowrap">
-                02 / Preparation
-              </span>
-              <div className="w-8 h-px bg-[#121212]/10" />
+          {/* Editorial Visual side */}
+          <div className="lg:col-span-6 relative flex flex-col items-end lg:sticky lg:top-35">
+            <div
+              ref={image1Ref}
+              className="relative w-full max-w-md aspect-3/4 overflow-hidden rounded-sm shadow-[0_30px_60px_-12px_rgba(0,0,0,0.08)]"
+            >
+              <Image
+                src="/images/alan-chips-hero-2.png"
+                alt="Finest potato selection"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div
+              ref={image2Ref}
+              className="relative w-72 md:w-80 aspect-square overflow-hidden rounded-sm shadow-[0_30px_60px_-12px_rgba(0,0,0,0.12)] mt-[-20%] mr-[20%] z-20 border-8 border-white"
+            >
+              <Image
+                src="/images/alan_chips_pieces.png"
+                alt="Precise preparation"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
+
+        {/* 3. Quality Promise Block */}
+        <div
+          ref={promiseRef}
+          className="relative w-full p-12 md:p-20 border border-[#ececeb] bg-white rounded-sm overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-orange via-gold to-orange" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-8 h-8 rounded-full bg-green/5 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-green" />
+                </div>
+                <span className="text-[10px] tracking-[0.3em] font-bold text-[#1a1a1a] uppercase">
+                  Quality Assurance
+                </span>
+              </div>
+              <h4 className="text-3xl md:text-4xl font-bold tracking-tight text-[#1a1a1a] mb-6">
+                Our Promise of <br /> Uncompromised Integrity.
+              </h4>
+            </div>
+            <div className="flex flex-col gap-6 border-l border-[#ececeb] pl-0 md:pl-12">
+              <p className="text-[#1a1a1a]/60 text-base md:text-lg font-light leading-relaxed">
+                At Alan Chips, quality is not a department; it is our foundation. Every
+                pack that leaves our facility is a symbol of our 60-year commitment to
+                transparency, health, and exceptional South Tamil Nadu flavor.
+              </p>
+              <div className="pt-4 flex items-center gap-4">
+                <span className="text-[9px] tracking-[0.4em] font-bold text-[#1a1a1a] uppercase">
+                  Certified Legacy
+                </span>
+                <div className="w-12 h-px bg-gold" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Sensory Description */}
+        <div
+          ref={sensoryRef}
+          className="flex flex-col items-center text-center max-w-4xl mx-auto py-12"
+        >
+          <span className="sensory-text block text-orange/80 font-bold tracking-[0.5em] uppercase text-[10px] mb-12">
+            The Sensory Experience
+          </span>
+          <p className="sensory-text text-[#1a1a1a] text-3xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.3]">
+            A heavy,{" "}
+            <span className="font-bold text-amber-500 italic">satisfying crunch</span>{" "}
+            that yields to the refined aroma of sun-ripened potatoes and{" "}
+            <span className="text-amber-500">master-balanced</span> spices.
+          </p>
+          <div className="sensory-text mt-16 w-px h-24 bg-linear-to-b from-gold to-transparent" />
+        </div>
       </div>
 
-      {/* MINIMALIST DECORATION */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-32 h-px bg-green/10" />
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-20">
-        <div className="w-px h-12 bg-green shadow-[0_0_10px_#017432]" />
-        <span
-          className="text-[10px] tracking-[0.4em] font-medium text-green uppercase rotate-180"
-          style={{ writingMode: "vertical-rl" }}
-        >
-          TRUSTED
-        </span>
-      </div>
+      {/* Background Micro Decorations */}
+      {/* <div className="absolute top-[20%] right-[-5%] w-96 h-96 bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-5%] w-[30vw] h-[30vw] bg-orange/5 blur-[150px] rounded-full pointer-events-none" /> */}
     </section>
   );
 };

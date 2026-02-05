@@ -1,35 +1,65 @@
 "use client";
 
-import { gsap } from "gsap";
+// import { gsap } from "gsap";
 // import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import Link from "next/link";
+// import { MoveRight } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero2() {
   const containerRef = useRef<HTMLElement>(null);
 
-  // useGSAP(() => {
-  //   gsap.from()
-  // }, { scope: containerRef });
+  // useGSAP(
+  //   () => {
+  //     gsap.utils.toArray();
+  //   },
+  //   { scope: containerRef },
+  // );
 
   return (
     <>
       <section
         ref={containerRef}
-        className="flex relative overflow-x-clip flex-col justify-center items-center md:bg-[url('/images/alan-chips-hero.webp')] bg-[url('/images/alan-chips-hero-2.png')] h-screen w-full bg-center bg-cover"
+        className="flex relative overflow-x-clip flex-col justify-center items-center h-screen w-full bg-center bg-cover"
       >
-        <h1 className="uppercase mb-3 bg-linear-to-r from-green to-green-400 bg-clip-text text-transparent tracking-widest text-6xl">
-          Alan Chips
-        </h1>
-        {/* <span className="text-sm">since 1960</span> */}
-        <h2 className="text-xl mb-1 bg-linear-to-l from-green to-green-400 bg-clip-text text-transparent">
-          Crafted Taste Since 1960
-        </h2>
-        <p className="max-w-lg text-center text-gray-800">
-          From a trusted legacy in South Tamil Nadu to a premium experience for everyone.
-        </p>
+        <video
+          autoPlay
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center"
+        >
+          <source src="/videos/alan-chips-video-2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="absolute inset-0 flex flex-col justify-center items-center">
+          <h1 className="uppercase text-center mb-3 opacity-90 bg-linear-to-r from-orange to-amber-400 bg-clip-text text-transparent tracking-widest text-6xl">
+            Alan Chips
+          </h1>
+
+          {/* <span className="text-sm">since 1960</span> */}
+          <h2 className="text-xl opacity-90 font-serif mb-1 text-orange">
+            Crafted Taste, Preserved Since 1960
+          </h2>
+
+          <div className="left-0 w-50 mb-4 h-0.5 bg-linear-to-r from-orange via-gold to-orange" />
+
+          <p className="max-w-lg opacity-90 font-sans text-center text-gray-800">
+            From a trusted legacy in South Tamil Nadu to a premium experience for
+            everyone.
+          </p>
+
+          <div className="mt-4">
+            <Link href="/about" className="uppercase text-orange">
+              Explore our story
+            </Link>
+
+            <div className="left-0 w-44 mb-4 h-0.5 bg-linear-to-r from-transparent via-orange to-transparent" />
+          </div>
+        </div>
       </section>
     </>
   );

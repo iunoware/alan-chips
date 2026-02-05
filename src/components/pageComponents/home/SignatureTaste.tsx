@@ -1,74 +1,122 @@
 "use client";
 
 import React, { useRef } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const flavorIdentities = [
+  {
+    title: "Perfect Crunch",
+    description:
+      "A signature snap that has resonated across South Tamil Nadu for generations.",
+    highlight: true,
+  },
+  {
+    title: "Balanced Spice",
+    description:
+      "Warm, hand-blended masalas that linger just long enough to evoke memory.",
+  },
+  {
+    title: "Natural Sweetness",
+    description: "The honest, earthy undertone of sun-ripened potatoes from local soil.",
+  },
+  {
+    title: "Fresh Finish",
+    description: "A clean, refined aftertaste that invites the next bite, and the next.",
+  },
+];
+
+// const varietyTeasers = [
+//   "/images/alan_chips_pieces.png",
+//   "/images/alan_chips_pieces.png",
+//   "/images/alan_chips_pieces.png",
+// ];
 
 const SignatureTaste = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const visualRef = useRef<HTMLDivElement>(null);
-  const labelRef = useRef<HTMLSpanElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
-  const mainImageRef = useRef<HTMLDivElement>(null);
-  const secondaryImageRef = useRef<HTMLDivElement>(null);
+  const introRef = useRef<HTMLDivElement>(null);
+  const heroVisualRef = useRef<HTMLDivElement>(null);
+  const flavorGridRef = useRef<HTMLDivElement>(null);
+  const statementRef = useRef<HTMLDivElement>(null);
+  const varietyRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      // Reveal timeline
-      const tl = gsap.timeline({
+      // 1. Intro Reveal
+      gsap.from(".st-intro-item", {
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 75%",
-          end: "bottom 25%",
+          trigger: introRef.current,
+          start: "top 85%",
           toggleActions: "play none none reverse",
         },
+        y: 30,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power2.out",
+        stagger: 0.3,
       });
 
-      tl.fromTo(
-        labelRef.current,
-        { opacity: 0, x: 20 },
-        { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
-      )
-        .fromTo(
-          headlineRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
-          "-=0.7",
-        )
-        .fromTo(
-          textRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-          "-=0.9",
-        );
-
-      // Subtle parallax for the sensory images
-      gsap.to(mainImageRef.current, {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.2,
+      // 2. Hero Visual Parallax & Scale
+      gsap.fromTo(
+        ".st-hero-image",
+        { scale: 1.1, y: 50 },
+        {
+          scrollTrigger: {
+            trigger: heroVisualRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1,
+          },
+          scale: 1,
+          y: -50,
+          ease: "none",
         },
-        y: -40,
-        ease: "none",
+      );
+
+      // 3. Flavor Identity Blocks Sequential Reveal
+      gsap.from(".st-flavor-block", {
+        scrollTrigger: {
+          trigger: flavorGridRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        y: 20,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power2.out",
       });
 
-      gsap.to(secondaryImageRef.current, {
+      // 4. Signature Statement Reveal
+      gsap.from(".st-statement-text", {
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 0.8,
+          trigger: statementRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
         },
-        y: 40,
-        ease: "none",
+        opacity: 0,
+        duration: 2,
+        ease: "power2.inOut",
+      });
+
+      // 5. Variety Tease Reveal
+      gsap.from(".st-variety-item", {
+        scrollTrigger: {
+          trigger: varietyRef.current,
+          start: "top 95%",
+          toggleActions: "play none none reverse",
+        },
+        x: 40,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: "power3.out",
       });
     },
     { scope: containerRef },
@@ -77,100 +125,98 @@ const SignatureTaste = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-32 md:py-48 lg:py-64 bg-white overflow-hidden selection:bg-green/10"
+      className="relative w-full py-40 bg-white overflow-hidden selection:bg-gold/20"
     >
-      {/* SOFT AMBIENT LIGHTING */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div
-          className="absolute top-1/4 right-[-10%] w-[50%] h-[60%] blur-[180px] opacity-10 rounded-full"
-          style={{
-            background: "linear-gradient(135deg, #fee701 0%, #e7601e 100%)",
-          }}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-360 mx-auto px-8 md:px-20 lg:px-32 grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-20 lg:gap-32 items-center">
-        {/* VISUALS: LEFT SIDE DISCOVERY */}
-        <div
-          ref={visualRef}
-          className="relative w-full flex items-center justify-center lg:justify-start order-2 lg:order-1"
-        >
-          <div className="relative w-full max-w-150 aspect-square lg:aspect-4/5">
-            {/* Main Sensory Image: Higher angle bowl or scattering */}
-            <div
-              ref={mainImageRef}
-              className="relative w-full h-full z-10 overflow-hidden rounded-sm shadow-2xl shadow-black/5"
-            >
-              <Image
-                src="/images/chips-image.png"
-                alt="Signature crunch detail"
-                fill
-                className="object-cover scale-105 hover:scale-110 transition-transform duration-1000 ease-out"
-              />
-            </div>
-
-            {/* Secondary Sensory Image: Fragment/Detail hover */}
-            {/* <div
-              ref={secondaryImageRef}
-              className="absolute -bottom-12 -right-12 lg:-right-20 w-48 md:w-64 aspect-square z-20 overflow-hidden shadow-2xl shadow-black/10"
-            >
-              <Image
-                src="/images/alan_chips_pieces.png"
-                alt="Golden texture detail"
-                fill
-                className="object-cover scale-125"
-              />
-            </div> */}
-          </div>
-        </div>
-
-        {/* TEXT CONTENT: RIGHT SIDE */}
-        <div
-          ref={contentRef}
-          className="flex flex-col items-start lg:items-end lg:text-right order-1 lg:order-2"
-        >
-          <span
-            ref={labelRef}
-            className="text-green font-bold tracking-[0.3em] uppercase text-xs mb-6 lg:ml-auto"
-          >
-            Signature Taste
-          </span>
-          <h2
-            ref={headlineRef}
-            className="text-[#121212] text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight"
-          >
+      <div className="relative z-10 max-w-screen mx-auto px-6 md:px-16 flex flex-col items-center gap-32 md:gap-48">
+        {/* 1. Section Intro — Emotional Hook */}
+        <div ref={introRef} className="text-center max-w-2xl">
+          <h2 className="st-intro-item text-[#1a1a1a] text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
             A Taste You <br />
-            Recognize <br />
-            <span className="text-green">Instantly.</span>
+            <span className="text-amber-500">Don&apos;t Forget.</span>
           </h2>
-          <div className="w-12 h-px bg-green/30 mb-8 lg:ml-auto" />
-          <p
-            ref={textRef}
-            className="text-[#121212]/70 text-lg md:text-xl leading-relaxed font-light max-w-md lg:ml-auto"
-          >
-            Carefully balanced flavors, a perfect crunch, and a taste refined over decades
-            — familiar, yet unforgettable. It’s the flavor that stayed when everything
-            else changed.
+          <p className="st-intro-item text-[#1a1a1a]/60 text-lg md:text-xl font-light leading-relaxed">
+            More than just a snack, it&apos;s a sensory homecoming. A recipe carried
+            through generations, capturing the warmth of family gatherings and the simple
+            joy of a craving satisfied.
           </p>
         </div>
+
+        {/* 2. Hero Taste Visual (Centerpiece) */}
+        {/* <div
+          ref={heroVisualRef}
+          className="relative w-full max-w-5xl aspect-video md:aspect-21/9 flex items-center justify-center"
+        >
+          <div className="st-hero-image relative w-full h-full max-w-4xl">
+            <Image
+              src="/images/chips-image.png"
+              alt="Signature crunch close-up"
+              fill
+              className="object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.05)]"
+              priority
+            />
+          </div>
+        </div> */}
+
+        {/* 3. Flavor Identity Blocks (Core Content) */}
+        <div
+          ref={flavorGridRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 w-full"
+        >
+          {flavorIdentities.map((flavor, index) => (
+            <div key={index} className="st-flavor-block flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <h3 className="text-xl font-bold text-[#1a1a1a] tracking-tight">
+                  {flavor.title}
+                </h3>
+                {flavor.highlight && (
+                  <div className="w-1 h-4 bg-green rounded-full opacity-60" />
+                )}
+              </div>
+              <p className="text-[#1a1a1a]/50 text-sm leading-relaxed font-light">
+                {flavor.description}
+              </p>
+              {flavor.highlight && (
+                <div className="w-8 h-px bg-linear-to-r from-orange to-gold mt-2" />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* 4. Signature Statement (Brand Memory) */}
+        <div
+          ref={statementRef}
+          className="text-center py-10 border-y border-[#ececeb] w-full max-w-4xl"
+        >
+          <p className="st-statement-text text-[#1a1a1a] text-2xl md:text-4xl font-light tracking-tight leading-relaxed">
+            &ldquo;This is the{" "}
+            <span className="font-bold text-amber-500 italic">taste</span> people{" "}
+            <br className="hidden md:block" /> carry with them, and always come back
+            for.&rdquo;
+          </p>
+        </div>
+
+        {/* 5. Optional Variety Tease (Subtle) */}
+        {/* <div ref={varietyRef} className="flex flex-col items-center gap-12 w-full">
+          <span className="text-[10px] tracking-[0.5em] font-bold text-[#1a1a1a]/40 uppercase">
+            Discovery Preview
+          </span>
+          <div className="flex gap-8 md:gap-16 items-center justify-center grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-1000">
+            {varietyTeasers.map((src, index) => (
+              <div
+                key={index}
+                className="st-variety-item relative w-20 h-20 md:w-32 md:h-32"
+              >
+                <Image src={src} alt="Variety tease" fill className="object-contain" />
+              </div>
+            ))}
+          </div>
+        </div> */}
       </div>
 
-      {/* MINIMALIST ACCENT: Horizontal Rule */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-32 h-px bg-green/10" />
-
-      {/* Scroll Hint / Brand Mark */}
-      <div className="absolute right-8 md:right-20 bottom-20 flex flex-col items-center gap-6 opacity-20">
-        <span className="text-[10px] tracking-[0.4em] font-medium text-green uppercase vertical-rl">
-          EST. 1960
-        </span>
-        <div className="w-px h-16 bg-gradient-to-b from-green to-transparent" />
-      </div>
-
-      <style jsx>{`
-        .vertical-rl {
-          writing-mode: vertical-rl;
-        }
-      `}</style>
+      {/* Background Accents (Minimal) */}
+      {/* <div className="absolute top-[10%] left-[-10%] w-[40vw] h-[40vw] bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[30vh] h-[30vh] bg-orange/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-8 w-px h-32 bg-[#ececeb] hidden lg:block" /> */}
     </section>
   );
 };

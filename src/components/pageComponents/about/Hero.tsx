@@ -83,9 +83,9 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full bg-white flex flex-col items-center justify-center px-6 pt-20 overflow-hidden"
+      className="relative min-h-screen w-full bg-[url('/images/alan-chips-about.webp')] bg-center bg-cover flex flex-col items-start justify-center px-6 pt-20 overflow-hidden"
+      // className="relative min-h-screen w-full bg-green flex flex-col items-center justify-center px-6 pt-20 overflow-hidden"
     >
-      {/* Visual Anchor - Subtle, Faded background element */}
       <div
         ref={visualRef}
         className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center"
@@ -102,7 +102,7 @@ export default function Hero() {
       </div>
 
       {/* Narrative Section */}
-      <div className="relative z-10 max-w-5xl w-full text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-5xl w-full text-start flex flex-col items-center backdrop-blur-lg py-5 rounded-md">
         {/* Heritage Label */}
         <div className="mb-10 flex flex-col items-center overflow-hidden">
           <span
@@ -117,7 +117,7 @@ export default function Hero() {
         {/* Primary Headline */}
         <h1
           ref={headlineRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-zinc-900 leading-[1.05] mb-8"
+          className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-zinc-900 leading-[1.05] mb-8"
         >
           A Legacy Refined <br /> Through Time.
         </h1>

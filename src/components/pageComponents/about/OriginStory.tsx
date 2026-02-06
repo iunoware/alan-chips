@@ -100,12 +100,12 @@ export default function OriginStory() {
               src="/images/alan-chips-bowl.png"
               alt="Contextual heritage visual"
               fill
-              className="object-contain grayscale opacity-20 transition-all duration-1000 group-hover:grayscale-0 group-hover:opacity-40"
+              className="object-contain"
             />
 
             {/* Year Marker Typography */}
             <div className="absolute -bottom-4 -left-4 md:-left-8">
-              <span className="text-8xl md:text-[12rem] font-bold text-zinc-100 select-none">
+              <span className="text-8xl md:text-[12rem] font-bold text-green/50 select-none">
                 1960
               </span>
             </div>
@@ -115,7 +115,7 @@ export default function OriginStory() {
 
       {/* Subtle Year Marker/Accent */}
       <div className="absolute top-1/2 right-10 -translate-y-1/2 opacity-[0.03] pointer-events-none hidden lg:block">
-        <span className="text-[20vw] font-bold leading-none text-zinc-900">ALAN</span>
+        <span className="text-[20vw] font-bold leading-none text-green/50">ALAN</span>
       </div>
     </section>
   );

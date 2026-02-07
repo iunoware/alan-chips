@@ -41,7 +41,7 @@ export default function Products() {
     <>
       <section
         ref={containerRef}
-        className="relative w-full py-24 md:py-40 overflow-x-clip"
+        className="relative w-full mt-200 py-24 md:py-40 overflow-x-clip"
       >
         <div className="flex flex-row gap-5 h-full overflow-x-clip w-[350%] px-12 md:px-12 lg:px-24">
           {/* Header Section */}

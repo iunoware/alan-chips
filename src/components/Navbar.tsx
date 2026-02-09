@@ -361,7 +361,7 @@ export default function Navbar() {
         ref={navRef}
         className={`${
           showNavbar ? "translate-y-0" : "-translate-y-full!"
-        } fixed top-0 z-50 w-full h-16 md:h-18 bg-white shadow-lg transition-all duration-300`}
+        } fixed top-0 z-100 w-full h-16 md:h-18 bg-white shadow-lg transition-all duration-300`}
       >
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 md:px-10">
           {/* Left: Brand Name */}

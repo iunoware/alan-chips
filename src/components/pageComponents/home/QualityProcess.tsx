@@ -46,7 +46,7 @@ const processSteps = [
     svg: <ShieldCheck className="inline text-green" />,
     description:
       "The final seal of perfection, guaranteeing excellence in every single pack we deliver.",
-    isQA: true,
+    // isQA: true,
   },
 ];
 
@@ -152,7 +152,7 @@ const QualityProcess = () => {
           <span className="q-header-content block text-orange font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-8">
             The Craft of Excellence
           </span>
-          <h2 className="q-header-content text-[#1a1a1a] text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tighter mb-10">
+          <h2 className="q-header-content text-[#1a1a1a] text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tighter mb-10">
             Precision in <br />
             <span className="text-amber-500">Every Batch.</span>
           </h2>
@@ -188,7 +188,7 @@ const QualityProcess = () => {
                     <h3 className="text-xl md:text-2xl font-bold text-[#1a1a1a] tracking-tight mb-2">
                       {step.title} {step.svg}
                     </h3>
-                    {step.isQA && (
+                    {/* {step.isQA && (
                       <div className="flex items-center justify-center w-4 h-4 rounded-full bg-green/10">
                         <svg
                           className="w-2.5 h-2.5 text-green"
@@ -204,7 +204,7 @@ const QualityProcess = () => {
                           />
                         </svg>
                       </div>
-                    )}
+                    )} */}
                   </div>
                   <p className="text-[#1a1a1a]/50 text-sm md:text-base leading-relaxed max-w-md font-light">
                     {step.description}
@@ -215,19 +215,19 @@ const QualityProcess = () => {
           </div>
 
           {/* Editorial Visual side */}
-          <div className="lg:col-span-6 relative flex flex-col items-end lg:sticky lg:top-35">
+          <div className="lg:col-span-6 relative flex flex-col items-end lg:sticky lg:top-25">
             <div
               ref={image1Ref}
               className="relative w-full max-w-md aspect-3/4 overflow-hidden rounded-sm shadow-[0_30px_60px_-12px_rgba(0,0,0,0.08)]"
             >
               <Image
-                src="/images/alan-chips-hero-2.png"
+                src="/images/alan_chips_pieces.png"
                 alt="Finest potato selection"
                 fill
                 className="object-cover"
               />
             </div>
-            <div
+            {/* <div
               ref={image2Ref}
               className="relative w-72 md:w-80 aspect-square overflow-hidden rounded-sm shadow-[0_30px_60px_-12px_rgba(0,0,0,0.12)] mt-[-20%] mr-[20%] z-20 border-8 border-white"
             >
@@ -237,14 +237,14 @@ const QualityProcess = () => {
                 fill
                 className="object-cover"
               />
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* 3. Quality Promise Block */}
         <div
           ref={promiseRef}
-          className="relative w-full p-12 md:p-20 border border-[#ececeb] bg-white rounded-sm overflow-hidden"
+          className="relative w-full p-12 md:p-20 border border-[#ececeb] bg-gray-100 rounded-sm overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-orange via-gold to-orange" />
 
@@ -279,7 +279,7 @@ const QualityProcess = () => {
         </div>
 
         {/* 4. Sensory Description */}
-        <div
+        {/* <div
           ref={sensoryRef}
           className="flex flex-col items-center text-center max-w-4xl mx-auto py-12"
         >
@@ -293,7 +293,7 @@ const QualityProcess = () => {
             <span className="text-amber-500">master-balanced</span> spices.
           </p>
           <div className="sensory-text mt-16 w-px h-24 bg-linear-to-b from-gold to-transparent" />
-        </div>
+        </div> */}
       </div>
 
       {/* Background Micro Decorations */}

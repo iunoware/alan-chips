@@ -1,5 +1,6 @@
+import Heritage from "@/components/pageComponents/home/Heritage";
 import Hero from "@/components/pageComponents/home/Hero";
-// import Hero2 from "@/components/pageComponents/home/Hero2";
+import Hero2 from "@/components/pageComponents/home/Hero2";
 import Products from "@/components/pageComponents/home/Products";
 import QualityProcess from "@/components/pageComponents/home/QualityProcess";
 import SignatureTaste from "@/components/pageComponents/home/SignatureTaste";
@@ -7,8 +8,13 @@ import SignatureTaste from "@/components/pageComponents/home/SignatureTaste";
 export default function Home() {
   return (
     <main className="bg-white selection:bg-gold/50">
-      <Hero />
-      {/* <Hero2 /> */}
+      <div className="lg:block hidden">
+        <Hero />
+      </div>
+      <div className="lg:hidden block">
+        <Hero2 />
+      </div>
+      <Heritage />
       <Products />
       <QualityProcess />
       <SignatureTaste />

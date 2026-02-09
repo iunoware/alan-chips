@@ -16,7 +16,7 @@ export default function Products() {
     () => {
       const panels = gsap.utils.toArray(".panel");
 
-      const totalPanels = 4.2;
+      const totalPanels = 10.7;
 
       gsap.to(panels, {
         xPercent: -100 * (totalPanels - 1),
@@ -30,7 +30,7 @@ export default function Products() {
           //   duration: 0.5,
           //   ease: "power1.inOut",
           // },
-          end: () => "+=" + containerRef.current!.offsetWidth * 3,
+          end: () => "+=" + containerRef.current!.offsetWidth * 9,
         },
       });
     },
@@ -41,13 +41,13 @@ export default function Products() {
     <>
       <section
         ref={containerRef}
-        className="relative w-full mt-200 py-24 md:py-40 overflow-x-clip"
+        className="relative w-full py-24 md:py-40 overflow-x-clip"
       >
-        <div className="flex flex-row gap-5 h-full overflow-x-clip w-[350%] px-12 md:px-12 lg:px-24">
+        <div className="flex flex-row gap-5 h-full overflow-x-clip w-[950%] px-12 md:px-12 lg:px-24">
           {/* Header Section */}
           <div className="flex panel flex-col h-full w-screen md:flex-row justify-center items-start mb-24 md:mb-32 gap-12">
             <div className="max-w-xl">
-              <h2 className="text-4xl reveal text-transparent bg-linear-to-r from-orange to-amber-400 bg-clip-text md:text-5xl lg:text-7xl font-serif mb-8 md:mb-12 tracking-tight leading-[1.1]">
+              <h2 className="text-4xl reveal text-transparent bg-linear-to-r from-orange to-amber-400 bg-clip-text md:text-5xl lg:text-7xl font-bold mb-8 md:mb-12 tracking-tight leading-[1.1]">
                 The Alan Chips <br /> Collection
               </h2>
               <p className="paraReveal text-neutral-800 text-base md:text-lg font-light leading-relaxed max-w-md">
@@ -63,7 +63,7 @@ export default function Products() {
             <div className="w-full md:w-6/12 ">
               <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
                 <Image
-                  src="/images/italian.webp"
+                  src="/images/products/alan-chips.webp"
                   alt="Italian cuisine details at our multi-cuisine cafe in Madurai"
                   fill
                   loading="lazy"
@@ -90,8 +90,7 @@ export default function Products() {
             <div className="w-full md:w-6/12">
               <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
                 <Image
-                  // src="/images/irish.jpg"
-                  src="/images/DSC00126.JPG"
+                  src="/images/products/plantain-chips.webp"
                   alt="Authentic Irish warmth and best ambience cafe in Madurai"
                   fill
                   loading="lazy"
@@ -119,7 +118,163 @@ export default function Products() {
             <div className="w-full md:w-6/12">
               <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
                 <Image
-                  src="/images/DSC00125.webp"
+                  src="/images/products/plantain-masala-chips.webp"
+                  alt="American classics at our cafe in Madurai bypass"
+                  fill
+                  loading="lazy"
+                  className="object-cover rounded-md"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            <div className="md:w-5/12 mx-auto">
+              <h3 className="reveal block text-2xl font-medium tracking-widest text-black uppercase mb-3">
+                American Classic
+              </h3>
+              <p className="paraReveal text-md md:text-xl font-light text-neutral-800">
+                Comfort that feels earned, not engineered. A balance of bold flavors and
+                careful restraint.
+              </p>
+            </div>
+          </div>
+
+          {/* Row 4*/}
+          <div className="flex panel flex-col md:flex-row h-full w-screen items-center gap-8 md:gap-16 pl-0 md:pl-12">
+            <div className="w-full md:w-6/12">
+              <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
+                <Image
+                  src="/images/products/potato-puthina-masala-chips.webp"
+                  alt="American classics at our cafe in Madurai bypass"
+                  fill
+                  loading="lazy"
+                  className="object-cover rounded-md"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            <div className="md:w-5/12 mx-auto">
+              <h3 className="reveal block text-2xl font-medium tracking-widest text-black uppercase mb-3">
+                American Classic
+              </h3>
+              <p className="paraReveal text-md md:text-xl font-light text-neutral-800">
+                Comfort that feels earned, not engineered. A balance of bold flavors and
+                careful restraint.
+              </p>
+            </div>
+          </div>
+
+          {/* Row 5*/}
+          <div className="flex panel flex-col md:flex-row h-full w-screen items-center gap-8 md:gap-16 pl-0 md:pl-12">
+            <div className="w-full md:w-6/12">
+              <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
+                <Image
+                  src="/images/products/potato-salted-chips.webp"
+                  alt="American classics at our cafe in Madurai bypass"
+                  fill
+                  loading="lazy"
+                  className="object-cover rounded-md"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            <div className="md:w-5/12 mx-auto">
+              <h3 className="reveal block text-2xl font-medium tracking-widest text-black uppercase mb-3">
+                American Classic
+              </h3>
+              <p className="paraReveal text-md md:text-xl font-light text-neutral-800">
+                Comfort that feels earned, not engineered. A balance of bold flavors and
+                careful restraint.
+              </p>
+            </div>
+          </div>
+
+          {/* Row 6*/}
+          <div className="flex panel flex-col md:flex-row h-full w-screen items-center gap-8 md:gap-16 pl-0 md:pl-12">
+            <div className="w-full md:w-6/12">
+              <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
+                <Image
+                  src="/images/products/stripe-sweet-plantain-chips.webp"
+                  alt="American classics at our cafe in Madurai bypass"
+                  fill
+                  loading="lazy"
+                  className="object-cover rounded-md"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            <div className="md:w-5/12 mx-auto">
+              <h3 className="reveal block text-2xl font-medium tracking-widest text-black uppercase mb-3">
+                American Classic
+              </h3>
+              <p className="paraReveal text-md md:text-xl font-light text-neutral-800">
+                Comfort that feels earned, not engineered. A balance of bold flavors and
+                careful restraint.
+              </p>
+            </div>
+          </div>
+
+          {/* Row 7*/}
+          <div className="flex panel flex-col md:flex-row h-full w-screen items-center gap-8 md:gap-16 pl-0 md:pl-12">
+            <div className="w-full md:w-6/12">
+              <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
+                <Image
+                  src="/images/products/sweet-plantain-chips.webp"
+                  alt="American classics at our cafe in Madurai bypass"
+                  fill
+                  loading="lazy"
+                  className="object-cover rounded-md"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            <div className="md:w-5/12 mx-auto">
+              <h3 className="reveal block text-2xl font-medium tracking-widest text-black uppercase mb-3">
+                American Classic
+              </h3>
+              <p className="paraReveal text-md md:text-xl font-light text-neutral-800">
+                Comfort that feels earned, not engineered. A balance of bold flavors and
+                careful restraint.
+              </p>
+            </div>
+          </div>
+
+          {/* Row 8*/}
+          <div className="flex panel flex-col md:flex-row h-full w-screen items-center gap-8 md:gap-16 pl-0 md:pl-12">
+            <div className="w-full md:w-6/12">
+              <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
+                <Image
+                  src="/images/products/tapioca-finger-chips.webp"
+                  alt="American classics at our cafe in Madurai bypass"
+                  fill
+                  loading="lazy"
+                  className="object-cover rounded-md"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            <div className="md:w-5/12 mx-auto">
+              <h3 className="reveal block text-2xl font-medium tracking-widest text-black uppercase mb-3">
+                American Classic
+              </h3>
+              <p className="paraReveal text-md md:text-xl font-light text-neutral-800">
+                Comfort that feels earned, not engineered. A balance of bold flavors and
+                careful restraint.
+              </p>
+            </div>
+          </div>
+
+          {/* Row 9*/}
+          <div className="flex panel flex-col md:flex-row h-full w-screen items-center gap-8 md:gap-16 pl-0 md:pl-12">
+            <div className="w-full md:w-6/12">
+              <div className="image-container-fade rounded-md relative w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl aspect-video mx-auto">
+                <Image
+                  src="/images/products/tapioca-round-chips.webp"
                   alt="American classics at our cafe in Madurai bypass"
                   fill
                   loading="lazy"

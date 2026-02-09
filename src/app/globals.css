@@ -84,3 +84,8 @@ body {
     transform: rotate(0deg);
   }
 }
+
+/* gradient text */
+.gradient-text {
+  @apply text-transparent bg-clip-text bg-linear-to-r from-orange to-amber-400
+}

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
+import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from "lucide-react";
 
@@ -72,21 +73,26 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full overflow-hidden bg-center bg-cover  pt-24 pb-12 border-t border-black/5"
+      className="relative w-full overflow-hidden bg-center bg-cover pt-14 pb-12 border-t border-black/5"
     >
       {/* <div className="absolute inset-0 h-full w-full bg-[url('/images/alan-chips-about.webp')] backdrop-blur-2xl"></div> */}
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Brand Story Column */}
           <div className="lg:col-span-4 space-y-6">
-            <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-amber-600">
+            {/* <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-amber-600">
               Our Heritage
-            </h3>
+            </h3> */}
+            <div className="relative h-30 w-70">
+              <Image src="/images/alan-chips-logo-1.png" alt="Alan Chips" fill />
+            </div>
+
             <p className="text-md leading-relaxed text-black/70 max-w-sm">
               Since 1960, we have been dedicated to the craft of traditional snacking.
               Grounded in South Tamil Nadu&apos;s rich culture, every chip carries the
               legacy of six decades of excellence and meticulous attention to quality.
             </p>
+
             <div className="flex items-center space-x-2 pt-2">
               <span className="w-8 h-px bg-green/30"></span>
               <span className="text-xs tracking-widest uppercase text-green font-semibold">
@@ -160,23 +166,23 @@ const Footer = () => {
         <div className="pt-12 border-t border-black/5 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <a
             href="https://iunoware.com"
-            className="text-[10px] tracking-[0.2em] uppercase text-black/30"
+            className="text-[10px] tracking-[0.2em] uppercase text-black/60"
           >
             © 2026 Iunoware Pvt Ltd. All rights reserved.
           </a>
           <div className="flex space-x-8">
-            <Link
-              href="/privacy"
-              className="text-[10px] tracking-[0.2em] uppercase text-black/30 hover:text-black transition-colors"
+            <div
+              // href="/privacy"
+              className="text-[10px] tracking-[0.2em] uppercase text-black/60 "
             >
               Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-[10px] tracking-[0.2em] uppercase text-black/30 hover:text-black transition-colors"
+            </div>
+            <div
+              // href="/terms"
+              className="text-[10px] tracking-[0.2em] uppercase text-black/60 "
             >
               Terms of Service
-            </Link>
+            </div>
           </div>
         </div>
       </div>

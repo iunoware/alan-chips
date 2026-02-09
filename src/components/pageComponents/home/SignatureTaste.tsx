@@ -21,14 +21,17 @@ const flavorIdentities = [
     title: "Balanced Spice",
     description:
       "Warm, hand-blended masalas that linger just long enough to evoke memory.",
+    highlight: true,
   },
   {
     title: "Natural Sweetness",
     description: "The honest, earthy undertone of sun-ripened potatoes from local soil.",
+    highlight: true,
   },
   {
     title: "Fresh Finish",
     description: "A clean, refined aftertaste that invites the next bite, and the next.",
+    highlight: true,
   },
 ];
 
@@ -127,37 +130,21 @@ const SignatureTaste = () => {
       ref={containerRef}
       className="relative w-full py-40 bg-white overflow-hidden selection:bg-gold/20"
     >
-      <div className="relative z-10 max-w-screen mx-auto px-6 md:px-16 flex flex-col items-center gap-32 md:gap-48">
+      <div className="relative z-10 max-w-screen mx-auto px-6 md:px-16 flex flex-col items-center gap-28">
         {/* 1. Section Intro — Emotional Hook */}
         <div ref={introRef} className="text-center max-w-2xl">
-          <h2 className="st-intro-item text-[#1a1a1a] text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
+          <h2 className="st-intro-item text-[#1a1a1a] text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-8">
             A Taste You <br />
-            <span className="text-amber-500">Don&apos;t Forget.</span>
+            <span className="gradient-text">Don&apos;t Forget.</span>
           </h2>
-          <p className="st-intro-item text-[#1a1a1a]/60 text-lg md:text-xl font-light leading-relaxed">
+          <p className="st-intro-item text-[#1a1a1a]/60 text-lg font-light leading-relaxed">
             More than just a snack, it&apos;s a sensory homecoming. A recipe carried
             through generations, capturing the warmth of family gatherings and the simple
             joy of a craving satisfied.
           </p>
         </div>
 
-        {/* 2. Hero Taste Visual (Centerpiece) */}
-        {/* <div
-          ref={heroVisualRef}
-          className="relative w-full max-w-5xl aspect-video md:aspect-21/9 flex items-center justify-center"
-        >
-          <div className="st-hero-image relative w-full h-full max-w-4xl">
-            <Image
-              src="/images/chips-image.png"
-              alt="Signature crunch close-up"
-              fill
-              className="object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.05)]"
-              priority
-            />
-          </div>
-        </div> */}
-
-        {/* 3. Flavor Identity Blocks (Core Content) */}
+        {/* 2. Flavor Identity Blocks (Core Content) */}
         <div
           ref={flavorGridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 w-full"
@@ -168,55 +155,33 @@ const SignatureTaste = () => {
                 <h3 className="text-xl font-bold text-[#1a1a1a] tracking-tight">
                   {flavor.title}
                 </h3>
-                {flavor.highlight && (
+                {/* {flavor.highlight && (
                   <div className="w-1 h-4 bg-green rounded-full opacity-60" />
-                )}
+                )} */}
               </div>
               <p className="text-[#1a1a1a]/50 text-sm leading-relaxed font-light">
                 {flavor.description}
               </p>
               {flavor.highlight && (
-                <div className="w-8 h-px bg-linear-to-r from-orange to-gold mt-2" />
+                <div className="w-30 rounded-full h-px bg-linear-to-r from-orange to-gold mt-2" />
               )}
             </div>
           ))}
         </div>
 
-        {/* 4. Signature Statement (Brand Memory) */}
+        {/* 3. Signature Statement (Brand Memory) */}
         <div
           ref={statementRef}
           className="text-center py-10 border-y border-[#ececeb] w-full max-w-4xl"
         >
-          <p className="st-statement-text text-[#1a1a1a] text-2xl md:text-4xl font-light tracking-tight leading-relaxed">
+          <p className="st-statement-text heading text-[#1a1a1a] text-2xl md:text-4xl font-bold">
             &ldquo;This is the{" "}
             <span className="font-bold text-amber-500 italic">taste</span> people{" "}
             <br className="hidden md:block" /> carry with them, and always come back
             for.&rdquo;
           </p>
         </div>
-
-        {/* 5. Optional Variety Tease (Subtle) */}
-        {/* <div ref={varietyRef} className="flex flex-col items-center gap-12 w-full">
-          <span className="text-[10px] tracking-[0.5em] font-bold text-[#1a1a1a]/40 uppercase">
-            Discovery Preview
-          </span>
-          <div className="flex gap-8 md:gap-16 items-center justify-center grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-1000">
-            {varietyTeasers.map((src, index) => (
-              <div
-                key={index}
-                className="st-variety-item relative w-20 h-20 md:w-32 md:h-32"
-              >
-                <Image src={src} alt="Variety tease" fill className="object-contain" />
-              </div>
-            ))}
-          </div>
-        </div> */}
       </div>
-
-      {/* Background Accents (Minimal) */}
-      {/* <div className="absolute top-[10%] left-[-10%] w-[40vw] h-[40vw] bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[30vh] h-[30vh] bg-orange/5 blur-[100px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 left-8 w-px h-32 bg-[#ececeb] hidden lg:block" /> */}
     </section>
   );
 };

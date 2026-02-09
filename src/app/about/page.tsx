@@ -3,6 +3,7 @@ import Hero from "@/components/pageComponents/about/Hero";
 import OriginStory from "@/components/pageComponents/about/OriginStory";
 import TimeLine from "@/components/pageComponents/about/TimeLine";
 import Products from "@/components/pageComponents/about/Products";
+import MakesUsDifferent from "@/components/pageComponents/about/MakesUsDifferent";
 
 export default function About() {
   return (
@@ -10,6 +11,7 @@ export default function About() {
       <Hero />
       <TimeLine />
       <OriginStory />
+      <MakesUsDifferent />
       <Products />
       <Cta />
     </main>

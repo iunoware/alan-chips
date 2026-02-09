@@ -1,31 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const products = [
   {
     id: 1,
-    title: "Residential Construction Process in India? ",
+    title: "Potato chips ",
     alt: "Top-construction-companies-in-Madurai",
-    date: "December 19, 2025",
-    category: "Knowledge",
-    image: "/images/p-1.webp",
+    image: "/images/products/alan-chips.webp",
   },
   {
     id: 2,
-    title: "Sai Construction – Leading Construction Company in Madurai",
-    alt: "Reliable builders in Madurai",
-    date: "Dec 26, 2025",
-    category: "Construction",
-    image: "/images/Residential-construction-in-Madurai.webp",
+    title: "Plantain masala chips",
+    alt: "the best plantain masala chips in the market",
+    image: "/images/products/plantain-masala-chips.webp",
   },
   {
     id: 3,
-    title: "The Ultimate Guide to Home Renovation",
+    title: "Stripe sweet plantain chips",
     alt: "House construction contractors in Madurai",
-    date: "Nov 15, 2025",
-    category: "Guides",
-    image: "/images/House-construction-contractors-in-Madurai.webp",
+    image: "/images/products/stripe-sweet-plantain-chips.webp",
   },
 ];
 
@@ -36,12 +30,12 @@ export default function Products() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <h2 className="heading text-3xl md:text-4xl font-bold text-blue mb-4 tracking-tight">
-              Insights & Articles
+            <h2 className="heading text-3xl md:text-4xl gradient-text font-bold text-blue mb-4 tracking-tight">
+              Crafted with Purpose
             </h2>
             <div className="w-16 h-1 bg-orange mb-6 rounded-full opacity-80"></div>
             <p className="content text-md md:text-lg text-gray-500">
-              Thoughts, tips, and updates from our construction journey.
+              Insights into our heritage, ingredients, and the care behind every crunch.
             </p>
           </div>
 
@@ -49,7 +43,7 @@ export default function Products() {
             href="/chips"
             className="hidden md:flex items-center gap-2 text-blue font-semibold hover:text-orange transition-colors duration-300 group"
           >
-            <span className="heading">View All Blogs</span>
+            <span className="heading">View All Products</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>
@@ -75,17 +69,7 @@ export default function Products() {
               {/* Content Overlay */}
               <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
                 <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="flex items-center gap-3 text-white/80 text-sm mb-3 content font-medium">
-                    <span className="bg-orange/90 px-2 py-0.5 rounded text-white text-xs uppercase tracking-wider">
-                      {blog.category}
-                    </span>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5" />
-                      <span className="text-xs md:text-md">{blog.date}</span>
-                    </div>
-                  </div>
-
-                  <h3 className="heading text-lg md:text-2xl font-bold text-white leading-tight group-hover:underline decoration-orange decoration-2 underline-offset-4 transition-all duration-300">
+                  <h3 className="heading text-lg md:text-xl text-white leading-tight group-hover:underline decoration-orange decoration-2 underline-offset-4 transition-all duration-300">
                     {blog.title}
                   </h3>
                 </div>

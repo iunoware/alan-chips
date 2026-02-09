@@ -119,19 +119,22 @@ export default function TimeLine() {
 
   const milestones = [
     {
-      year: "1999",
-      title: "Foundation",
-      description: "Founded by Mr. Panneer Selvam",
+      year: "1960",
+      title: "The Beginning",
+      description:
+        "Alan Chips was introduced to the public in Kerala, redefining how plantain chips were made and enjoyed.",
     },
     {
-      year: "Expansion",
-      title: "Growth",
-      description: "Under the leadership of Mrs. Kavitha Panneer Selvam",
+      year: "Legacy",
+      title: "A Family Craft",
+      description:
+        "Generations carried forward the tradition, perfecting thin-sliced plantain, potato, tapioca, and jackfruit chips.",
     },
     {
-      year: "Present",
-      title: "Modern Era",
-      description: "Madurai operations led by Mr. Kishore Panneer Selvam",
+      year: "Today",
+      title: "Tradition, Refined",
+      description:
+        "From Ilanji, Tamil Nadu, Alan Chips continues to deliver fresh, authentic flavors with uncompromised quality.",
     },
   ];
 
@@ -155,7 +158,7 @@ export default function TimeLine() {
           {/* Timeline Section (Left/Top) */}
           <div ref={timelineRef} className="w-full lg:w-3/5 relative pt-10">
             {/* Main Horizontal Line */}
-            <div className="absolute top-13 left-0 w-full h-0.5 bg-blue/20 timeline-line origin-left"></div>
+            <div className="absolute top-13 left-0 w-full h-0.5 bg-amber-500/20 timeline-line origin-left"></div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
               {milestones.map((milestone, index) => (
@@ -167,7 +170,7 @@ export default function TimeLine() {
 
                   {/* Text */}
                   <div className="timeline-content text-center md:text-left">
-                    <span className="block heading text-2xl font-bold text-orange mb-2 group-hover:text-blue transition-colors duration-300">
+                    <span className="block heading text-2xl font-bold text-orange mb-2 group-hover:gradient-text transition-colors duration-300">
                       {milestone.year}
                     </span>
                     <h4 className="heading text-lg font-bold text-[#1A1A1A] mb-2">
@@ -186,21 +189,22 @@ export default function TimeLine() {
           <div ref={contentRef} className="w-full lg:w-2/5">
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-10 bg-blue/50"></span>
-              <span className="uppercase tracking-[0.2em] text-xs font-bold text-blue/70 content">
-                Who We Are
+              <span className="uppercase tracking-[0.2em] text-xs font-bold gradient-text/70 content">
+                Our Story
               </span>
             </div>
 
-            <h2 className="heading text-3xl lg:text-5xl font-bold text-[#1A1A1A] mb-8 leading-tight">
-              Two Decades of <br />
-              <span className="text-blue italic">Building Excellence</span>
+            <h2 className="heading text-3xl lg:text-4xl font-bold text-gray-800 mb-8 leading-tight">
+              Over Six Decades of <br />
+              <span className="gradient-text italic">Authentic Taste</span>
             </h2>
 
             <p className="content text-md text-stone-600 mb-10 leading-relaxed">
-              At Sai Constructions, our journey began in 1999 with a commitment to
-              delivering high-quality construction solutions. Guided by strong family
-              leadership, we have grown into one of the most reliable builders in Madurai
-              for residential and commercial projects.
+              Alan Chips began as a small family effort rooted in tradition and care. What
+              started in 1960 as a simple idea — making chips the right way — has grown
+              into a trusted name known for freshness, authenticity, and uncompromising
+              quality. Every batch reflects our belief that great taste comes from
+              patience, intention, and respect for ingredients.
             </p>
 
             {/* <Link

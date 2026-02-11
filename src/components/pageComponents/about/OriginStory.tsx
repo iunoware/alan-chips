@@ -41,7 +41,7 @@ export default function OriginStory() {
       tl.fromTo(
         visualRef.current,
         { opacity: 0, scale: 1.05 },
-        { opacity: 0.4, scale: 1, duration: 2, ease: "power2.out" },
+        { opacity: 1, scale: 1, duration: 2, ease: "power2.out" },
         "-=1.5",
       );
     },
@@ -65,7 +65,7 @@ export default function OriginStory() {
           </div>
 
           {/* Headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-zinc-900 leading-[1.15] mb-12 max-w-2xl">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-text leading-[1.15] mb-12 max-w-2xl">
             It Started With a Simple Idea: <br />
             Make Chips the Right Way.
           </h2>
@@ -92,9 +92,6 @@ export default function OriginStory() {
           ref={visualRef}
           className="lg:col-span-5 relative w-full aspect-4/5 lg:aspect-auto h-full min-h-100 flex items-center justify-center"
         >
-          {/* Abstract Visual Form */}
-          <div className="absolute inset-0 bg-linear-to-b from-gold/5 to-orange/5 rounded-[40px] blur-3xl" />
-
           <div className="relative w-full h-full max-w-md group">
             <Image
               src="/images/alan-chips-bowl.png"
@@ -115,7 +112,7 @@ export default function OriginStory() {
 
       {/* Subtle Year Marker/Accent */}
       <div className="absolute top-1/2 right-10 -translate-y-1/2 opacity-[0.03] pointer-events-none hidden lg:block">
-        <span className="text-[20vw] font-bold leading-none text-green/50">ALAN</span>
+        <span className="text-[20vw] font-bold leading-none text-green">ALAN</span>
       </div>
     </section>
   );

@@ -159,7 +159,7 @@ export default function MakesUsDifferent() {
 
             <div className="w-12 h-px bg-brand-red mx-auto mb-8"></div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl gradient-text leading-tight mb-10">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl gradient-text font-bold leading-tight mb-10">
               Where Tradition <br />
               <span className="italic">Meet Intention</span>
             </h2>

@@ -144,14 +144,14 @@ export default function TimeLine() {
       className="relative overflow-x-clip w-full py-24 lg:py-32 bg-white overflow-hidden"
     >
       {/* Subtle architectural grid background */}
-      <div
+      {/* <div
         className="absolute inset-0 pointer-events-none opacity-[0.06]"
         style={{
           backgroundImage:
             "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
-      ></div>
+      ></div> */}
 
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start lg:items-center">
@@ -164,7 +164,7 @@ export default function TimeLine() {
               {milestones.map((milestone, index) => (
                 <div key={index} className="relative group">
                   {/* Dot/Marker */}
-                  <div className="w-6 h-6 rounded-full bg-white border-4 border-blue/90 relative z-10 mb-6 timeline-node shadow-lg group-hover:scale-125 transition-transform duration-300 mx-auto md:mx-0">
+                  <div className="w-6 h-6 rounded-full bg-white border-4 border-green/90 relative z-10 mb-6 timeline-node shadow-lg group-hover:scale-125 transition-transform duration-300 mx-auto md:mx-0">
                     <div className="absolute inset-0 rounded-full bg-orange opacity-0 group-hover:opacity-20 animate-ping"></div>
                   </div>
 
@@ -194,7 +194,7 @@ export default function TimeLine() {
               </span>
             </div>
 
-            <h2 className="heading text-3xl lg:text-4xl font-bold text-gray-800 mb-8 leading-tight">
+            <h2 className="heading text-3xl lg:text-4xl font-bold text-black mb-8 leading-tight">
               Over Six Decades of <br />
               <span className="gradient-text italic">Authentic Taste</span>
             </h2>

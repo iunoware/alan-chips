@@ -18,7 +18,7 @@ const Cta = () => {
       {/* CTA Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center">
         {/* Heading: Premium Editorial Style, Uppercase, Serif (Cinzel Decorative) */}
-        <h2 className="text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-[0.05em] mb-8 font-normal uppercase">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-[0.05em] mb-8 font-bold uppercase">
           <span className="block mb-1 md:mb-2 opacity-95">THIS IS WHAT</span>
           <span className="block text-[#D4AF37] mb-1 md:mb-2">QUALITY</span>
           <span className="block opacity-95">TASTES LIKE</span>

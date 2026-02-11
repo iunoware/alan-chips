@@ -80,13 +80,16 @@ export default function Hero() {
           <h2 className="text-4xl fade-in-text text-transparent bg-clip-text bg-linear-to-r from-orange to-amber-400 translate-y-25 text-center font-bold z-40">
             Taste
           </h2>
-          <h1 className="text-center text-transparent bg-clip-text bg-linear-to-r from-orange to-amber-400 fade-in-text text-7xl lg:text-9xl translate-y-30 font-bold z-40">
+          <h1 className="text-center flex flex-col text-transparent bg-clip-text bg-linear-to-r from-orange to-amber-400 fade-in-text text-7xl lg:text-9xl translate-y-30 font-bold z-40">
             Alan Chips
+            <span className="fade-in-text text-xl opacity-90 mb-1 text-orange">
+              Crafted Taste, Preserved Since 1960
+            </span>
           </h1>
         </div>
 
         {/* left text */}
-        <div className="w-full fade-in-text flex justify-start translate-y-90 ml-20">
+        <div className="w-full fade-in-text flex justify-start translate-y-60 ml-20">
           <h2 className="max-w-100 text-xl font-bold">
             Rooted in tradition and refined for modern tastes, Alan chips delivers trusted
             quality and timeless flavor.
@@ -127,7 +130,7 @@ export default function Hero() {
           className="h-150 rounded-full w-150 absolute outline outline-green outline-offset-24 translate-y-40 left-1/2 -translate-x-1/2 z-0 bg-green"
         ></div>
 
-        <div className="flex w-full mr-10 justify-between items-center">
+        <div className="flex w-full mr-10 justify-between items-start">
           {/* left main content */}
           <div className="text-white ml-15 flex justify-start w-full z-40 fade-in-text translate-y-80">
             <div className="w-120 space-y-5">

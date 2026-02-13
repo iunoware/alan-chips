@@ -57,16 +57,13 @@ const Footer = () => {
     { name: "Contact Us", href: "/contact" },
   ];
 
-  // const productCategories = [
-  //   { name: "Tapioca Signature", href: "/products/tapioca" },
-  //   { name: "Classic Potato", href: "/products/potato" },
-  //   { name: "Specialty Banana", href: "/products/banana" },
-  //   { name: "Regional Delights", href: "/products/regional" },
-  // ];
-
   const socialLinks = [
     { icon: <Instagram size={18} />, href: "", name: "Instagram" },
-    { icon: <Facebook size={18} />, href: "", name: "Facebook" },
+    {
+      icon: <Facebook size={18} />,
+      href: "https://www.facebook.com/alanchipsilanji/",
+      name: "Facebook",
+    },
     { icon: <Twitter size={18} />, href: "", name: "Twitter" },
   ];
 
@@ -77,7 +74,7 @@ const Footer = () => {
     >
       {/* <div className="absolute inset-0 h-full w-full bg-[url('/images/alan-chips-about.webp')] backdrop-blur-2xl"></div> */}
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+        <div className="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-2">
           {/* Brand Story Column */}
           <div className="lg:col-span-4 space-y-6">
             {/* <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-amber-600">
@@ -130,19 +127,38 @@ const Footer = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 text-sm text-black/60">
                   <MapPin size={16} className="text-green/50 mt-1 shrink-0" />
-                  <span>
-                    Main Road, Kovilpatti,
+                  <a
+                    href="https://maps.app.goo.gl/E2KKVDj5MpkB35K77"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:text-black/90 transition-all duration-300"
+                  >
+                    Courtallam to Madurai main road, post,
                     <br />
-                    Tamil Nadu 628501, India
-                  </span>
+                    Ilanji, Tenkasi, Tamil Nadu 627805
+                  </a>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-black/60">
                   <Phone size={16} className="text-green/50 shrink-0" />
-                  <span>+91 98765 43210</span>
+                  <a
+                    href="tel:+919952738678"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:text-black/90 transition-all duration-300"
+                  >
+                    +91 99527 38678
+                  </a>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-black/60">
                   <Mail size={16} className="text-green/50 shrink-0" />
-                  <span>heritage@alanchips.com</span>
+                  <a
+                    href="mailto:info@alanchips.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:text-black/90 transition-all duration-300"
+                  >
+                    info@alanchips.com
+                  </a>
                 </div>
               </div>
             </div>
@@ -152,6 +168,8 @@ const Footer = () => {
                 <Link
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-black/5 flex items-center justify-center text-black/40 hover:text-green hover:border-green/20 hover:bg-white transition-all duration-300"
                   aria-label={social.name}
                 >
@@ -163,7 +181,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="pt-12 border-t border-black/5 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="pt-5 border-t border-black/5 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <a
             href="https://iunoware.com"
             className="text-[10px] tracking-[0.2em] uppercase text-black/60"

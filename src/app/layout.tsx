@@ -4,6 +4,7 @@ import "./globals.css";
 // import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,8 +53,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} antialiased`}
       >
         <Navbar />
-        <main className="">{children}</main>
-        <Footer />
+        <SmoothScrollProvider>
+          <main className="">{children}</main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

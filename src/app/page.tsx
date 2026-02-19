@@ -16,13 +16,11 @@ export default function Home() {
       <div className="lg:hidden block">
         <Hero2 />
       </div>
-
       <Heritage />
       <ShopByCategory />
-      {/* <ProductGrid /> */}
       <QualityProcess />
       <SignatureTaste />
-      <Cta />
+      {/* <Cta /> */}
     </main>
   );
 }

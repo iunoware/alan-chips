@@ -15,7 +15,7 @@ export default function About() {
       <MakesUsDifferent />
       <Products />
       <WhyLove />
-      <Cta />
+      {/* <Cta /> */}
     </main>
   );
 }

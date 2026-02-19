@@ -4,6 +4,7 @@ import "./globals.css";
 // import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Cta from "@/components/Cta";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const geistSans = Geist({
@@ -42,6 +43,8 @@ export const metadata: Metadata = {
   // },
 };
 
+import { CartProvider } from "@/context/CartContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -52,11 +55,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} antialiased`}
       >
-        <Navbar />
-        <SmoothScrollProvider>
-          <main className="">{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
+        <CartProvider>
+          <Navbar />
+          <SmoothScrollProvider>
+            <main className="">{children}</main>
+            <Cta />
+            <Footer />
+          </SmoothScrollProvider>
+        </CartProvider>
       </body>
     </html>
   );

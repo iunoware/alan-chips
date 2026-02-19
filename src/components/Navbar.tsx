@@ -266,6 +266,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 import { gsap } from "gsap";
 
 const navLinks = [
@@ -276,6 +278,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const { totalItems } = useCart();
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -359,9 +362,8 @@ export default function Navbar() {
     <>
       <nav
         ref={navRef}
-        className={`${
-          showNavbar ? "translate-y-0" : "-translate-y-full!"
-        } fixed top-0 z-100 w-full h-16 md:h-18 bg-white shadow-lg transition-all duration-300`}
+        className={`${showNavbar ? "translate-y-0" : "-translate-y-full!"
+          } fixed top-0 z-100 w-full h-16 md:h-18 bg-white shadow-lg transition-all duration-300`}
       >
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 md:px-10">
           {/* Left: Brand Name */}
@@ -389,13 +391,25 @@ export default function Navbar() {
                 >
                   {link.name}
                   <span
-                    className={`absolute -bottom-1 left-0 h-[1.5px] bg-green transition-all duration-300 ease-out ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
+                    className={`absolute -bottom-1 left-0 h-[1.5px] bg-green transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
                   />
                 </Link>
               );
             })}
+
+            {/* Cart Button */}
+            <Link
+              href="/cart"
+              className="relative p-2 text-black hover:text-green-700 transition-colors"
+            >
+              <ShoppingCart size={22} strokeWidth={2} />
+              {totalItems > 0 && (
+                <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-green-700 text-[10px] font-bold text-white">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
           </div>
 
           {/* Far Right: CTA (Desktop) */}
@@ -410,34 +424,45 @@ export default function Navbar() {
             </a>
           </div> */}
 
-          {/* Mobile Menu Button - Hamburger + Label */}
-          <button
-            ref={burgerRef}
-            onClick={toggleMenu}
-            className="relative z-999 flex items-center space-x-3 focus:outline-none md:hidden"
-            aria-label="Toggle Menu"
-          >
-            <span className="font-sans text-[11px] font-medium tracking-[0.2em] text-black uppercase transition-all duration-300">
-              {isOpen ? "Close" : "Menu"}
-            </span>
-            <div className="flex flex-col items-end space-y-1.5">
-              <span
-                className={`h-px bg-black transition-all duration-300 ${
-                  isOpen ? "w-6 translate-y-1.75 rotate-45" : "w-6"
-                }`}
-              />
-              <span
-                className={`h-px bg-black transition-all duration-300 ${
-                  isOpen ? "opacity-0" : "w-4"
-                }`}
-              />
-              <span
-                className={`h-px bg-black transition-all duration-300 ${
-                  isOpen ? "w-6 -translate-y-1.75 -rotate-45" : "w-5"
-                }`}
-              />
-            </div>
-          </button>
+          {/* Mobile Right: Cart + Toggle */}
+          <div className="flex items-center space-x-4 md:hidden">
+            <Link
+              href="/cart"
+              className="relative p-2 text-black active:scale-90 transition-transform"
+            >
+              <ShoppingCart size={20} strokeWidth={2} />
+              {totalItems > 0 && (
+                <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-green-700 text-[10px] font-bold text-white">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+
+            <button
+              ref={burgerRef}
+              onClick={toggleMenu}
+              className="relative z-999 flex items-center space-x-3 focus:outline-none"
+              aria-label="Toggle Menu"
+            >
+              <span className="font-sans text-[11px] font-medium tracking-[0.2em] text-black uppercase transition-all duration-300">
+                {isOpen ? "Close" : "Menu"}
+              </span>
+              <div className="flex flex-col items-end space-y-1.5">
+                <span
+                  className={`h-px bg-black transition-all duration-300 ${isOpen ? "w-6 translate-y-1.75 rotate-45" : "w-6"
+                    }`}
+                />
+                <span
+                  className={`h-px bg-black transition-all duration-300 ${isOpen ? "opacity-0" : "w-4"
+                    }`}
+                />
+                <span
+                  className={`h-px bg-black transition-all duration-300 ${isOpen ? "w-6 -translate-y-1.75 -rotate-45" : "w-5"
+                    }`}
+                />
+              </div>
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -462,9 +487,8 @@ export default function Navbar() {
                 >
                   {link.name}
                   <span
-                    className={`absolute -bottom-2 left-1/2 h-px -translate-x-1/2 bg-brand-red transition-all duration-500 ease-out ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
+                    className={`absolute -bottom-2 left-1/2 h-px -translate-x-1/2 bg-brand-red transition-all duration-500 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
                   />
                 </Link>
               </div>

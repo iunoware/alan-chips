@@ -30,7 +30,7 @@ const ShopByCategory = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col overflow-x-clip relative w-full bg-green py-10">
+    <div className="min-h-screen flex flex-col overflow-x-clip relative w-full bg-linear-to-br from-green from-60% to-green/50 py-10">
       {/* Background SVG - Adjusted color for visibility */}
       <div className="absolute inset-0 -top-15 md:-top-40 left-0 pointer-events-none">
         <svg

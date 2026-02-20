@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel_Decorative } from "next/font/google";
-import "./globals.css";
+// import "./globals.css";
 // import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -40,7 +40,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} antialiased`}
       >
-        <main className="">{children}</main>
+        <CartProvider>
+          <Navbar />
+          <SmoothScrollProvider>
+            <main className="">{children}</main>
+            <Cta />
+            <Footer />
+          </SmoothScrollProvider>
+        </CartProvider>
       </body>
     </html>
   );

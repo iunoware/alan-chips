@@ -410,6 +410,14 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
+
+            {/* Login Button */}
+            <Link
+              href="/login"
+              className="ml-2 px-6 py-2 bg-linear-to-r from-orange to-red-500 text-white text-[15px] font-bold rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all active:scale-95"
+            >
+              Sign In
+            </Link>
           </div>
 
           {/* Far Right: CTA (Desktop) */}
@@ -464,13 +472,14 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </nav>
+      </nav >
 
       {/* Mobile Menu Overlay - */}
-      <div
+      < div
         ref={mobileMenuRef}
         className="fixed inset-0 z-55 mt-16 hidden h-screen w-screen flex-col items-center justify-center bg-white/30 backdrop-blur-lg"
-        style={{ opacity: 0 }}
+        style={{ opacity: 0 }
+        }
       >
         <div className="flex flex-col -mt-20 items-center space-y-8 px-6 text-center">
           {navLinks.map((link, index) => {
@@ -495,22 +504,21 @@ export default function Navbar() {
             );
           })}
 
-          {/* <div
-            className="pt-10"
+          {/* Mobile Login Button */}
+          <div
+            className="pt-6"
             ref={(el) => {
               mobileLinksRef.current[navLinks.length] = el;
             }}
           >
-            <a
-              href="https://maps.app.goo.gl/jBX9HGtHyhLxGoj28"
-              target="_blank"
+            <Link
+              href="/login"
               onClick={toggleMenu}
-              className="group relative font-sans text-sm font-medium tracking-[0.2em] text-black uppercase"
+              className="px-10 py-4 bg-linear-to-r from-orange to-red-500 text-white text-xl font-bold rounded-full shadow-xl shadow-orange-500/20 active:scale-95 transition-all"
             >
-              Visit Us &rarr;
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-brand-red transition-all duration-300 ease-out group-hover:w-full" />
-            </a>
-          </div> */}
+              Sign In
+            </Link>
+          </div>
         </div>
       </div>
     </>

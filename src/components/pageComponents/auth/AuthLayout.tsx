@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -26,12 +27,7 @@ export default function AuthLayout({
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
 
     tl.fromTo(visualRef.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1 })
-      .fromTo(
-        formRef.current,
-        { x: 50, opacity: 0 },
-        { x: 0, opacity: 1 },
-        "-=0.8",
-      )
+      .fromTo(formRef.current, { x: 50, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.8")
       .fromTo(
         chipsRef.current?.children || [],
         { scale: 0, opacity: 0, rotate: -45 },
@@ -59,7 +55,7 @@ export default function AuthLayout({
   return (
     <div
       ref={containerRef}
-      className="min-h-full overflow-x-clip! w-full flex items-center justify-center p-4 md:p-8  pt-24"
+      className="min-h-full overflow-x-hidden w-full flex items-center justify-center p-4 md:p-8  pt-24"
     >
       <div className="max-w-6xl w-full rounded-2xl grid grid-cols-1 lg:grid-cols-2 bg-white shadow-2xl overflow-hidden min-h-175">
         {/* Left Side: Visual */}
@@ -67,31 +63,6 @@ export default function AuthLayout({
           ref={visualRef}
           className="hidden lg:flex flex-col justify-center items-center bg-linear-to-br from-green-500 to-green-800 p-12 relative overflow-hidden"
         >
-          {/* Decorative Chips */}
-          {/* <div ref={chipsRef} className="absolute inset-0 pointer-events-none">
-            <Image
-              src="/images/single-chip.png"
-              alt="chip"
-              width={100}
-              height={100}
-              className="absolute top-10 left-10 opacity-20 rotate-12"
-            />
-            <Image
-              src="/images/single-chip.png"
-              alt="chip"
-              width={120}
-              height={120}
-              className="absolute bottom-20 right-10 opacity-30 -rotate-45"
-            />
-            <Image
-              src="/images/single-chip.png"
-              alt="chip"
-              width={80}
-              height={80}
-              className="absolute top-1/2 left-20 opacity-25 rotate-90"
-            />
-          </div> */}
-
           <div className="relative z-10 text-center text-white">
             <div className="mb-8 flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
               <Image
@@ -102,10 +73,10 @@ export default function AuthLayout({
                 className="mb-4 h-auto w-auto"
               />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-cinzel tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 font-cinzel tracking-tight">
               {title}
             </h2>
-            <p className="text-orange-50 text-lg max-w-md mx-auto leading-relaxed">
+            <p className="text-orange-50 text-md max-w-md mx-auto leading-relaxed">
               {subtitle}
             </p>
           </div>

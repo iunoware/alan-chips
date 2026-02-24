@@ -24,7 +24,7 @@ export default function LoginPage() {
       title="Welcome Back!"
       subtitle="Grab a bag of chips and log in to explore your favorite snacks."
     >
-      <div className="flex overflow-x-hidden flex-col items-center justify-center lg:items-start text-center lg:text-left mb-10">
+      <div className="flex overflow-x-hidden flex-col items-center justify-center lg:items-start text-center lg:text-left">
         <Image
           src="/images/alan-chips-logo-1.png"
           alt="Alan Chips Logo"

@@ -55,9 +55,9 @@ export default function AuthLayout({
   return (
     <div
       ref={containerRef}
-      className="min-h-full overflow-x-hidden w-full flex items-center justify-center p-4 md:p-8  pt-24"
+      className="min-h-full overflow-x-hidden w-full flex items-center justify-center"
     >
-      <div className="max-w-6xl w-full rounded-2xl grid grid-cols-1 lg:grid-cols-2 bg-white shadow-2xl overflow-hidden min-h-175">
+      <div className="w-full h-screen rounded-2xl grid grid-cols-1 lg:grid-cols-2 bg-white shadow-2xl ">
         {/* Left Side: Visual */}
         <div
           ref={visualRef}
@@ -87,10 +87,7 @@ export default function AuthLayout({
         </div>
 
         {/* Right Side: Form Content */}
-        <div
-          ref={formRef}
-          className="flex flex-col justify-center p-8 md:p-12 lg:p-16 bg-white"
-        >
+        <div ref={formRef} className="flex flex-col justify-center p-8 bg-white">
           <div className="w-full max-w-md mx-auto">{children}</div>
         </div>
       </div>

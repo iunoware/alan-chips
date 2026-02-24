@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cinzel_Decorative } from "next/font/google";
+import { Geist, Geist_Mono, Cinzel_Decorative, Poppins } from "next/font/google";
 import "./globals.css";
 // import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Cta from "@/components/Cta";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${poppins.variable} antialiased`}
       >
         <main className="">{children}</main>
       </body>

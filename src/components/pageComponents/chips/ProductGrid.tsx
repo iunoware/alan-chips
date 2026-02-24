@@ -136,9 +136,7 @@ const products: Product[] = [
   },
 ];
 
-
-
-// ─── Portal Modal ─────────────────────────────────────────────────────────────
+// ─── Portal Modal
 const ProductModal = ({
   product,
   onClose,
@@ -146,7 +144,7 @@ const ProductModal = ({
   product: Product;
   onClose: () => void;
 }) => {
-  const { addToCart } = useCart();
+  const { cart, addToCart, updateQuantity } = useCart();
   const backdropRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const [selectedWeight, setSelectedWeight] = useState(product.weight);
@@ -216,6 +214,27 @@ const ProductModal = ({
   }, []);
 
   if (!mounted) return null;
+  const cartItem = cart.find(
+    (item) => item.id === product.id && item.weight === selectedWeight,
+  );
+  const isInCart = !!cartItem;
+  const displayQuantity = isInCart ? cartItem.quantity : localQuantity;
+
+  const handleIncreaseQuantity = () => {
+    if (isInCart) {
+      updateQuantity(product.id, selectedWeight, displayQuantity + 1);
+    } else {
+      setLocalQuantity(localQuantity + 1);
+    }
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (isInCart) {
+      updateQuantity(product.id, selectedWeight, displayQuantity - 1);
+    } else if (localQuantity > 1) {
+      setLocalQuantity(localQuantity - 1);
+    }
+  };
 
   // ✅ THE FIX: createPortal mounts the modal directly onto document.body.
   // This completely escapes the CSS stacking context created by the card's
@@ -283,10 +302,11 @@ const ProductModal = ({
                   <button
                     key={w}
                     onClick={() => setSelectedWeight(w)}
-                    className={`py-3 px-4 rounded-xl border-2 font-bold transition-all duration-300 ${selectedWeight === w
-                      ? "border-green-700 bg-green-50 text-green-700"
-                      : "border-neutral-100 hover:border-neutral-300"
-                      }`}
+                    className={`py-3 px-4 rounded-xl border-2 font-bold transition-all duration-300 ${
+                      selectedWeight === w
+                        ? "border-green-700 bg-green-50 text-green-700"
+                        : "border-neutral-100 hover:border-neutral-300"
+                    }`}
                   >
                     {w}
                   </button>
@@ -306,16 +326,22 @@ const ProductModal = ({
               </div>
               <div className="flex items-center bg-neutral-100 rounded-xl p-1.5 gap-4">
                 <button
-                  onClick={() => setLocalQuantity(Math.max(1, localQuantity - 1))}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDecreaseQuantity();
+                  }}
                   className="p-2 bg-white rounded-lg shadow-sm text-neutral-600 hover:text-neutral-950 active:scale-90 transition-all"
                 >
                   <Minus size={18} />
                 </button>
                 <span className="font-bold text-xl text-neutral-900 min-w-7.5 text-center">
-                  {localQuantity}
+                  {displayQuantity}
                 </span>
                 <button
-                  onClick={() => setLocalQuantity(localQuantity + 1)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleIncreaseQuantity();
+                  }}
                   className="p-2 bg-white rounded-lg shadow-sm text-neutral-600 hover:text-neutral-950 active:scale-90 transition-all"
                 >
                   <Plus size={18} />
@@ -334,13 +360,16 @@ const ProductModal = ({
                   image: product.image,
                   price: product.price,
                   weight: selectedWeight,
-                  quantity: localQuantity
+                  quantity: displayQuantity,
                 });
                 setIsAdded(true);
                 setTimeout(() => setIsAdded(false), 2000);
               }}
-              className={`w-full font-bold py-5 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 active:scale-[0.98] shadow-lg ${isAdded ? "bg-green-700 text-white" : "bg-neutral-900 text-white hover:bg-green-700"
-                }`}
+              className={`w-full font-bold py-5 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 active:scale-[0.98] shadow-lg ${
+                isAdded
+                  ? "bg-green-700 text-white"
+                  : "bg-neutral-900 text-white hover:bg-green-700"
+              }`}
             >
               {isAdded ? (
                 <>
@@ -350,7 +379,7 @@ const ProductModal = ({
               ) : (
                 <>
                   <ShoppingCart size={20} />
-                  Add to Cart • ₹{product.price * localQuantity}
+                  Check out • ₹{product.price * displayQuantity}
                 </>
               )}
             </button>
@@ -377,7 +406,9 @@ const ProductCard = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   // Find cart item with default weight
-  const cartItem = cart.find(item => item.id === product.id && item.weight === product.weight);
+  const cartItem = cart.find(
+    (item) => item.id === product.id && item.weight === product.weight,
+  );
   const quantity = cartItem?.quantity || 0;
   const added = quantity > 0;
 
@@ -410,11 +441,9 @@ const ProductCard = ({
       image: product.image,
       price: product.price,
       weight: product.weight,
-      quantity: 1
+      quantity: 1,
     });
   };
-
-
 
   return (
     <div
@@ -463,7 +492,7 @@ const ProductCard = ({
         <button
           ref={buttonRef}
           onClick={handleAddToCart}
-          className={`mt-auto ${added ? "hidden" : "flex"} w-full bg-neutral-900 text-white font-bold py-3.5 rounded-xl items-center justify-center gap-2 hover:bg-green-700 transition-all duration-300 active:scale-95 shadow-sm`}
+          className={`mt-auto ${added ? "hidden" : "flex"} w-full cursor-pointer bg-neutral-900 text-white font-bold py-3.5 rounded-xl items-center justify-center gap-2 hover:bg-green-700 transition-all duration-300 active:scale-95 shadow-sm`}
         >
           <ShoppingCart size={18} />
           Add to Cart

@@ -266,7 +266,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, User } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { gsap } from "gsap";
 
@@ -312,7 +312,11 @@ export default function Navbar() {
       defaults: { ease: "power3.out", duration: 1.2 },
     });
 
-    tl.fromTo(navRef.current, { y: -20, opacity: 0 }, { y: 0, opacity: 1 }).fromTo(
+    tl.fromTo(
+      navRef.current,
+      { y: -20, opacity: 0 },
+      { y: 0, opacity: 1 },
+    ).fromTo(
       [logoRef.current, linksRef.current, ctaRef.current, burgerRef.current],
       { opacity: 0, y: 10 },
       { opacity: 1, y: 0, stagger: 0.1 },
@@ -362,25 +366,32 @@ export default function Navbar() {
     <>
       <nav
         ref={navRef}
-        className={`${showNavbar ? "translate-y-0" : "-translate-y-full!"
-          } fixed top-0 z-100 w-full h-16 md:h-18 bg-white shadow-lg transition-all duration-300`}
+        className={`${
+          showNavbar ? "translate-y-0" : "-translate-y-full!"
+        } fixed top-0 z-100 w-full h-16 md:h-18 bg-white shadow-lg transition-all duration-300`}
       >
-        <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 md:px-10">
+        <div className="flex h-full mx-auto max-w-8xl items-center justify-around px-6 md:px-0">
           {/* Left: Brand Name */}
-          <div ref={logoRef} className="shrink-0">
+          <div
+            ref={logoRef}
+            className="shrink-0 flex items-center justify-center"
+          >
             <Link href="/">
               <Image
                 src="/images/alan-chips-logo-1.png"
                 alt="Ambience and table setting at Chopstix"
-                width={140}
+                width={120}
                 height={60}
-                className="w-auto md:h-18 h-6"
+                className="w-auto p-1.5 md:h-18 h-6"
               />
             </Link>
           </div>
 
           {/* Center/Right: Navigation Links (Desktop) */}
-          <div ref={linksRef} className="hidden items-center space-x-12 md:flex">
+          <div
+            ref={linksRef}
+            className="hidden justify-center items-center space-x-12 md:flex"
+          >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -391,14 +402,17 @@ export default function Navbar() {
                 >
                   {link.name}
                   <span
-                    className={`absolute -bottom-1 left-0 h-[1.5px] bg-green transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
+                    className={`absolute -bottom-1 left-0 h-[1.5px] bg-green transition-all duration-300 ease-out ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
                   />
                 </Link>
               );
             })}
+          </div>
 
-            {/* Cart Button */}
+          {/* Cart Button */}
+          <div className="flex space-x-2">
             <Link
               href="/cart"
               className="relative p-2 text-black hover:text-green-700 transition-colors"
@@ -411,6 +425,15 @@ export default function Navbar() {
               )}
             </Link>
 
+            {/* Account Button */}
+            <Link
+              href="/account"
+              className="relative p-2 text-black hover:text-orange transition-colors"
+              title="My Account"
+            >
+              <User size={22} strokeWidth={2} />
+            </Link>
+
             {/* Login Button */}
             <Link
               href="/login"
@@ -420,20 +443,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Far Right: CTA (Desktop) */}
-          {/* <div ref={ctaRef} className="hidden md:block">
-            <a
-              href="https://maps.app.goo.gl/jBX9HGtHyhLxGoj28"
-              target="_blank"
-              className="group relative font-sans text-[15px] font-medium tracking-wide text-black"
-            >
-              Visit Us &rarr;
-              <span className="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-brand-red transition-all duration-300 ease-out group-hover:w-full" />
-            </a>
-          </div> */}
-
           {/* Mobile Right: Cart + Toggle */}
-          <div className="flex items-center space-x-4 md:hidden">
+          <div className="flex items-center justify-center space-x-4 md:hidden">
             <Link
               href="/cart"
               className="relative p-2 text-black active:scale-90 transition-transform"
@@ -444,6 +455,13 @@ export default function Navbar() {
                   {totalItems}
                 </span>
               )}
+            </Link>
+
+            <Link
+              href="/account"
+              className="relative p-2 text-black active:scale-90 transition-transform"
+            >
+              <User size={20} strokeWidth={2} />
             </Link>
 
             <button
@@ -457,29 +475,31 @@ export default function Navbar() {
               </span>
               <div className="flex flex-col items-end space-y-1.5">
                 <span
-                  className={`h-px bg-black transition-all duration-300 ${isOpen ? "w-6 translate-y-1.75 rotate-45" : "w-6"
-                    }`}
+                  className={`h-px bg-black transition-all duration-300 ${
+                    isOpen ? "w-6 translate-y-1.75 rotate-45" : "w-6"
+                  }`}
                 />
                 <span
-                  className={`h-px bg-black transition-all duration-300 ${isOpen ? "opacity-0" : "w-4"
-                    }`}
+                  className={`h-px bg-black transition-all duration-300 ${
+                    isOpen ? "opacity-0" : "w-4"
+                  }`}
                 />
                 <span
-                  className={`h-px bg-black transition-all duration-300 ${isOpen ? "w-6 -translate-y-1.75 -rotate-45" : "w-5"
-                    }`}
+                  className={`h-px bg-black transition-all duration-300 ${
+                    isOpen ? "w-6 -translate-y-1.75 -rotate-45" : "w-5"
+                  }`}
                 />
               </div>
             </button>
           </div>
         </div>
-      </nav >
+      </nav>
 
       {/* Mobile Menu Overlay - */}
-      < div
+      <div
         ref={mobileMenuRef}
         className="fixed inset-0 z-55 mt-16 hidden h-screen w-screen flex-col items-center justify-center bg-white/30 backdrop-blur-lg"
-        style={{ opacity: 0 }
-        }
+        style={{ opacity: 0 }}
       >
         <div className="flex flex-col -mt-20 items-center space-y-8 px-6 text-center">
           {navLinks.map((link, index) => {
@@ -496,8 +516,9 @@ export default function Navbar() {
                 >
                   {link.name}
                   <span
-                    className={`absolute -bottom-2 left-1/2 h-px -translate-x-1/2 bg-brand-red transition-all duration-500 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
+                    className={`absolute -bottom-2 left-1/2 h-px -translate-x-1/2 bg-brand-red transition-all duration-500 ease-out ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
                   />
                 </Link>
               </div>
@@ -511,6 +532,14 @@ export default function Navbar() {
               mobileLinksRef.current[navLinks.length] = el;
             }}
           >
+            <Link
+              href="/account"
+              onClick={toggleMenu}
+              className="px-10 py-4 bg-zinc-100 text-zinc-900 text-xl font-bold rounded-full active:scale-95 transition-all"
+            >
+              My Account
+            </Link>
+
             <Link
               href="/login"
               onClick={toggleMenu}

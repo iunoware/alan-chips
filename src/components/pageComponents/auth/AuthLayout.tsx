@@ -64,13 +64,15 @@ export default function AuthLayout({
           className="hidden lg:flex flex-col justify-center items-center bg-linear-to-br from-green-500 to-green-800 p-12 relative overflow-hidden"
         >
           <div className="relative z-10 text-center text-white">
+            {/* left image */}
             <div className="mb-8 flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
               <Image
                 src="/images/logo-dark.png"
                 alt="Alan Chips Logo"
-                width={60}
-                height={20}
-                className="mb-4 h-auto w-auto"
+                width={120}
+                height={90}
+                // sizes="50px"
+                className="mb-4 "
               />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4 font-cinzel tracking-tight">

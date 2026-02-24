@@ -28,9 +28,9 @@ export default function LoginPage() {
         <Image
           src="/images/alan-chips-logo-1.png"
           alt="Alan Chips Logo"
-          width={120}
-          height={50}
-          className="mb-6 h-auto w-auto"
+          width={150}
+          height={90}
+          className="mb-6 "
         />
         <h1 className="text-2xl font-bold text-zinc-900 mb-2">Welcome Back</h1>
         <p className="text-zinc-500 text-sm">Please enter your details to sign in</p>
@@ -115,7 +115,7 @@ export default function LoginPage() {
           />
         </button>
 
-        <div className="relative flex items-center justify-center py-2">
+        <div className="relative flex items-center justify-center py-1">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-zinc-200"></div>
           </div>

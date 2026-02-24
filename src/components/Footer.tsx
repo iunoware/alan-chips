@@ -5,7 +5,14 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from "lucide-react";
+import {
+  Instagram,
+  Facebook,
+  Twitter,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -18,6 +25,7 @@ const Footer = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Subtle entrance animation for content
+      // just something for the commit
       gsap.from(".footer-content > div", {
         y: 30,
         opacity: 0,
@@ -81,13 +89,18 @@ const Footer = () => {
               Our Heritage
             </h3> */}
             <div className="relative h-30 w-70">
-              <Image src="/images/alan-chips-logo-1.png" alt="Alan Chips" fill />
+              <Image
+                src="/images/alan-chips-logo-1.png"
+                alt="Alan Chips"
+                fill
+              />
             </div>
 
             <p className="text-md leading-relaxed text-black/70 max-w-sm">
-              Since 1960, we have been dedicated to the craft of traditional snacking.
-              Grounded in South Tamil Nadu&apos;s rich culture, every chip carries the
-              legacy of six decades of excellence and meticulous attention to quality.
+              Since 1960, we have been dedicated to the craft of traditional
+              snacking. Grounded in South Tamil Nadu&apos;s rich culture, every
+              chip carries the legacy of six decades of excellence and
+              meticulous attention to quality.
             </p>
 
             <div className="flex items-center space-x-2 pt-2">

@@ -2,7 +2,6 @@ import Cta from "@/components/Cta";
 import Heritage from "@/components/pageComponents/home/Heritage";
 import Hero from "@/components/pageComponents/home/Hero";
 import Hero2 from "@/components/pageComponents/home/Hero2";
-// import ProductGrid from "@/components/pageComponents/chips/ProductGrid";
 import QualityProcess from "@/components/pageComponents/home/QualityProcess";
 import SignatureTaste from "@/components/pageComponents/home/SignatureTaste";
 import ShopByCategory from "@/components/pageComponents/home/ShopByCategory";

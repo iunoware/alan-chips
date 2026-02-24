@@ -24,7 +24,7 @@ export default function LoginPage() {
       title="Welcome Back!"
       subtitle="Grab a bag of chips and log in to explore your favorite snacks."
     >
-      <div className="flex overflow-x-clip! flex-col items-center lg:items-start text-center lg:text-left mb-10">
+      <div className="flex overflow-x-hidden flex-col items-center justify-center lg:items-start text-center lg:text-left">
         <Image
           src="/images/alan-chips-logo-1.png"
           alt="Alan Chips Logo"
@@ -32,8 +32,8 @@ export default function LoginPage() {
           height={50}
           className="mb-6 h-auto w-auto"
         />
-        <h1 className="text-3xl font-bold text-zinc-900 mb-2">Welcome Back</h1>
-        <p className="text-zinc-500">Please enter your details to sign in</p>
+        <h1 className="text-2xl font-bold text-zinc-900 mb-2">Welcome Back</h1>
+        <p className="text-zinc-500 text-sm">Please enter your details to sign in</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
@@ -52,17 +52,13 @@ export default function LoginPage() {
               className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all"
               required
               value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-zinc-700 ml-1">
-            Password
-          </label>
+          <label className="text-sm font-semibold text-zinc-700 ml-1">Password</label>
           <div className="relative group">
             <Lock
               className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 group-focus-within:text-orange-500 transition-colors"
@@ -70,13 +66,12 @@ export default function LoginPage() {
             />
             <input
               type={showPassword ? "text" : "password"}
-              placeholder="••••••••"
+              // placeholder="••••••••"
+              placeholder="******"
               className="w-full pl-12 pr-12 py-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all"
               required
               value={formData.password}
-              onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
-              }
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             />
             <button
               type="button"
@@ -94,9 +89,7 @@ export default function LoginPage() {
               type="checkbox"
               className="w-4 h-4 rounded border-zinc-300 text-orange-500 focus:ring-orange-500 cursor-pointer"
               checked={formData.rememberMe}
-              onChange={(e) =>
-                setFormData({ ...formData, rememberMe: e.target.checked })
-              }
+              onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
             />
             <span className="text-sm text-zinc-600 group-hover:text-zinc-900 transition-colors">
               Remember me

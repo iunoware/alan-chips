@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -7,7 +8,7 @@ const ShopByCategory = () => {
       title: "Best Loved Classics",
       images: [
         "/images/alan-chips.png",
-        "/images/plantain-chips.png",
+        "/images/plaintain-no-bg.png",
         "/images/potato-salted-chips.png",
       ],
     },
@@ -67,19 +68,22 @@ const ShopByCategory = () => {
             >
               {/* Image Container with fixed height/width to prevent collapse */}
               <div className="relative h-70 md:h-87.5 w-full flex items-center justify-center mb-8">
-                <img
+                <Image
+                  fill
                   src={chip.images[0]}
                   alt=""
                   className="h-full w-auto z-10 absolute -rotate-2 -translate-x-8 transition-transform duration-500 group-hover:-rotate-18 group-hover:-translate-x-16"
                 />
-                <img
+                <Image
                   src={chip.images[1]}
                   alt=""
+                  fill
                   className="z-20 h-full w-auto absolute transition-transform duration-500 group-hover:scale-110"
                 />
-                <img
+                <Image
                   src={chip.images[2]}
                   alt=""
+                  fill
                   className="h-full w-auto z-10 absolute rotate-2 translate-x-8 transition-transform duration-500 group-hover:rotate-18 group-hover:translate-x-16"
                 />
               </div>

@@ -128,6 +128,7 @@ export default function Navbar() {
 
           {/* Desktop Right CTA */}
           <div ref={ctaRef} className="hidden lg:flex items-center space-x-4">
+            {/* Need to remove the pointer events none when we start full stack */}
             <Link
               href="/cart"
               className="relative p-2 text-black hover:text-[#d4af37] transition-colors"
@@ -140,9 +141,10 @@ export default function Navbar() {
               )}
             </Link>
 
+            {/* Need to remove the pointer events none when we start full stack */}
             <Link
               href="/account"
-              className="relative p-2 text-black hover:text-[#d4af37] transition-colors"
+              className="relative p-2 pointer-events-none  text-black hover:text-[#d4af37] transition-colors"
               title="My Account"
             >
               <User size={22} strokeWidth={2} />
@@ -150,7 +152,7 @@ export default function Navbar() {
 
             <Link
               href="/login"
-              className="ml-2 px-6 py-2.5 bg-black text-white text-[15px] font-bold rounded-full hover:bg-[#d4af37] hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-95"
+              className="ml-2 px-6 py-2.5 bg-black pointer-events-none text-white text-[15px] font-bold rounded-full hover:bg-[#d4af37] hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-95"
             >
               Sign In
             </Link>
@@ -236,18 +238,20 @@ export default function Navbar() {
           </div>
 
           <div className="mt-auto pt-10 flex flex-col space-y-4">
+            {/* Need to remove the pointer events none when we start full stack */}
             <Link
               href="/account"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center w-full px-8 py-4 bg-transparent border border-black text-black text-lg font-bold rounded-full transition-all hover:bg-[#f3f0e8] active:scale-95"
+              className="flex items-center pointer-events-none justify-center w-full px-8 py-4 bg-transparent border border-black text-black text-lg font-bold rounded-full transition-all hover:bg-[#f3f0e8] active:scale-95"
             >
               My Account
             </Link>
 
+            {/* Need to remove the pointer events none when we start full stack */}
             <Link
               href="/login"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center w-full px-8 py-4 bg-black text-white text-lg font-bold rounded-full shadow-lg transition-all hover:bg-[#d4af37] hover:-translate-y-1 hover:shadow-xl hover:shadow-[#d4af37]/40 active:scale-95"
+              className="flex items-center pointer-events-none justify-center w-full px-8 py-4 bg-black text-white text-lg font-bold rounded-full shadow-lg transition-all hover:bg-[#d4af37] hover:-translate-y-1 hover:shadow-xl hover:shadow-[#d4af37]/40 active:scale-95"
             >
               Sign In
             </Link>

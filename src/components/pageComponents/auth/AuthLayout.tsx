@@ -14,7 +14,7 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({
   children,
-  visualImage = "/images/alan-chips-hero-2.webp",
+  visualImage = "/images/kerala-banana-chips-in-tenkasi.webp",
   title,
   subtitle,
 }: AuthLayoutProps) {
@@ -27,7 +27,12 @@ export default function AuthLayout({
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
 
     tl.fromTo(visualRef.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1 })
-      .fromTo(formRef.current, { x: 50, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.8")
+      .fromTo(
+        formRef.current,
+        { x: 50, opacity: 0 },
+        { x: 0, opacity: 1 },
+        "-=0.8",
+      )
       .fromTo(
         chipsRef.current?.children || [],
         { scale: 0, opacity: 0, rotate: -45 },
@@ -89,7 +94,10 @@ export default function AuthLayout({
         </div>
 
         {/* Right Side: Form Content */}
-        <div ref={formRef} className="flex flex-col justify-center p-8 bg-white">
+        <div
+          ref={formRef}
+          className="flex flex-col justify-center p-8 bg-white"
+        >
           <div className="w-full max-w-md mx-auto">{children}</div>
         </div>
       </div>

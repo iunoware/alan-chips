@@ -25,21 +25,17 @@ const flavorIdentities = [
   },
   {
     title: "Natural Sweetness",
-    description: "The honest, earthy undertone of sun-ripened potatoes from local soil.",
+    description:
+      "The honest, earthy undertone of sun-ripened potatoes from local soil.",
     highlight: true,
   },
   {
     title: "Fresh Finish",
-    description: "A clean, refined aftertaste that invites the next bite, and the next.",
+    description:
+      "A clean, refined aftertaste that invites the next bite, and the next.",
     highlight: true,
   },
 ];
-
-// const varietyTeasers = [
-//   "/images/alan_chips_pieces.png",
-//   "/images/alan_chips_pieces.png",
-//   "/images/alan_chips_pieces.png",
-// ];
 
 const SignatureTaste = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -138,9 +134,9 @@ const SignatureTaste = () => {
             <span className="gradient-text">Don&apos;t Forget.</span>
           </h2>
           <p className="st-intro-item text-[#1a1a1a]/60 text-lg font-light leading-relaxed">
-            More than just a snack, it&apos;s a sensory homecoming. A recipe carried
-            through generations, capturing the warmth of family gatherings and the simple
-            joy of a craving satisfied.
+            More than just a snack, it&apos;s a sensory homecoming. A recipe
+            carried through generations, capturing the warmth of family
+            gatherings and the simple joy of a craving satisfied.
           </p>
         </div>
 
@@ -176,9 +172,9 @@ const SignatureTaste = () => {
         >
           <p className="st-statement-text heading text-[#1a1a1a] text-2xl md:text-4xl font-bold">
             &ldquo;This is the{" "}
-            <span className="font-bold text-amber-500 italic">taste</span> people{" "}
-            <br className="hidden md:block" /> carry with them, and always come back
-            for.&rdquo;
+            <span className="font-bold text-amber-500 italic">taste</span>{" "}
+            people <br className="hidden md:block" /> carry with them, and
+            always come back for.&rdquo;
           </p>
         </div>
       </div>

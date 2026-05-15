@@ -68,7 +68,7 @@ const Hero = () => {
     // </section>
     <section
       ref={containerRef}
-      className="relative md:h-screen h overflow-x-clip bg-[url('/images/chips-bg2.png')] bg-center bg-cover pt-40 pb-20 md:pt-56 md:pb-32 px-6  grid md:grid-cols-2 grid-cols-1  place-items-center text-left bg-[#FAF9F6]"
+      className="relative md:h-screen h overflow-x-clip bg-[url('/images/chips-shop-near-courtallam.png')] bg-center bg-cover pt-40 pb-20 md:pt-56 md:pb-32 px-6  grid md:grid-cols-2 grid-cols-1  place-items-center text-left bg-[#FAF9F6]"
     >
       <div ref={textRef} className="max-w-4xl">
         <h1 className="hero-heading text-left text-4xl md:text-5xl font-bold text-white mb-8 leading-[1.1] tracking-tight uppercase">
@@ -112,7 +112,7 @@ const Hero = () => {
           {/* 2 */}
           <div className="absolute ">
             <img
-              src="/images/alan-chips.png"
+              src="/images/best-chips-shop-in-tenkasi.png"
               alt="Best chips in Tamil Nadu"
               className="drop-shadow-2xl h-100 scale-100 z-20 translate-x-0 -translate-y-10"
             />

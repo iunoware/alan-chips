@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cinzel_Decorative, Poppins } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Cinzel_Decorative,
+  Poppins,
+} from "next/font/google";
 import "./globals.css";
 // import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
@@ -29,9 +34,12 @@ const cinzelDecorative = Cinzel_Decorative({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Alan Chips",
-  description: "Alan Chips",
+// app/page.js
+
+export const metadata = {
+  title: "Alan Chips | Premium Crispy Potato Chips & Tasty Snacks",
+  description:
+    "Discover Alan Chips for crispy potato chips, delicious flavors, quality ingredients, and fresh snacks made for every craving. Taste the crunch everyone loves.",
 };
 
 import { CartProvider } from "@/context/CartContext";

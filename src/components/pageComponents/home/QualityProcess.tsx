@@ -5,7 +5,13 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ShoppingCart, Crown, CookingPot, ChefHat, ShieldCheck } from "lucide-react";
+import {
+  ShoppingCart,
+  Crown,
+  CookingPot,
+  ChefHat,
+  ShieldCheck,
+} from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -157,9 +163,9 @@ const QualityProcess = () => {
             <span className="text-amber-500">Every Batch.</span>
           </h2>
           <p className="q-header-content text-[#1a1a1a]/60 text-lg md:text-xl leading-relaxed font-light max-w-xl">
-            Established in 1960, Alan Chips remains dedicated to the art of traditional
-            snack-making. We believe that modern speed can never replace the soul of
-            hand-crafted quality.
+            Established in 1960, Alan Chips remains dedicated to the art of
+            traditional snack-making. We believe that modern speed can never
+            replace the soul of hand-crafted quality.
           </p>
         </div>
 
@@ -221,7 +227,7 @@ const QualityProcess = () => {
               className="relative w-full max-w-md aspect-3/4 overflow-hidden rounded-sm shadow-[0_30px_60px_-12px_rgba(0,0,0,0.08)]"
             >
               <Image
-                src="/images/alan_chips_pieces.png"
+                src="/images/banana-chips-in-tenkasi.png"
                 alt="Finest potato selection"
                 fill
                 className="object-cover"
@@ -232,7 +238,7 @@ const QualityProcess = () => {
               className="relative w-72 md:w-80 aspect-square overflow-hidden rounded-sm shadow-[0_30px_60px_-12px_rgba(0,0,0,0.12)] mt-[-20%] mr-[20%] z-20 border-8 border-white"
             >
               <Image
-                src="/images/alan_chips_pieces.png"
+                src="/images/banana-chips-in-tenkasi.png"
                 alt="Precise preparation"
                 fill
                 className="object-cover"
@@ -264,9 +270,10 @@ const QualityProcess = () => {
             </div>
             <div className="flex flex-col gap-6 border-l border-[#ececeb] pl-0 md:pl-12">
               <p className="text-[#1a1a1a]/60 text-base md:text-lg font-light leading-relaxed">
-                At Alan Chips, quality is not a department; it is our foundation. Every
-                pack that leaves our facility is a symbol of our 60-year commitment to
-                transparency, health, and exceptional South Tamil Nadu flavor.
+                At Alan Chips, quality is not a department; it is our
+                foundation. Every pack that leaves our facility is a symbol of
+                our 60-year commitment to transparency, health, and exceptional
+                South Tamil Nadu flavor.
               </p>
               <div className="pt-4 flex items-center gap-4">
                 <span className="text-[9px] tracking-[0.4em] font-bold text-[#1a1a1a] uppercase">

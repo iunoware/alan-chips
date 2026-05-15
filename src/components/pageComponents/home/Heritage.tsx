@@ -107,16 +107,18 @@ export default function Heritage() {
             </h2>
             <div className="flex flex-col gap-6 text-black/70 text-lg leading-relaxed max-w-2xl font-sans">
               <p>
-                Founded over <strong>six decades ago</strong>, Alan Chips represents a
-                journey rooted in authentic taste and uncompromising quality. What began
-                as a family-led effort to craft better plantain chips soon became a name
-                people trusted for consistency, freshness, and flavor.
+                Founded over <strong>six decades ago</strong>, Alan Chips
+                represents a journey rooted in authentic taste and
+                uncompromising quality. What began as a family-led effort to
+                craft better plantain chips soon became a name people trusted
+                for consistency, freshness, and flavor.
               </p>
               <p>
-                Using time-honored methods and carefully selected ingredients, every chip
-                is prepared with attention to detail. Each batch reflects the same values
-                that have guided us <strong>since 1960</strong> — authenticity, care, and
-                respect for taste.
+                Using time-honored methods and carefully selected ingredients,
+                every chip is prepared with attention to detail. Each batch
+                reflects the same values that have guided us{" "}
+                <strong>since 1960</strong> — authenticity, care, and respect
+                for taste.
               </p>
             </div>
 
@@ -133,7 +135,7 @@ export default function Heritage() {
             <div className="relative aspect-3/4 w-full overflow-hidden bg-zinc-200">
               <div ref={imageRef} className="absolute inset-0">
                 <Image
-                  src="/images/alan-chips-hero-2.webp"
+                  src="/images/kerala-banana-chips-in-tenkasi.webp"
                   alt="Crafting culinary excellence"
                   fill
                   className="object-cover rounded-md"

@@ -33,7 +33,7 @@ export default function RegisterPage() {
     <AuthLayout
       title="Join the Snack Revolution"
       subtitle="Create an account and get exclusive access to new flavors and special offers."
-      visualImage="/images/alan-chips-hero-2.webp"
+      visualImage="/images/kerala-banana-chips-in-tenkasi.webp"
     >
       <div className="flex flex-col  items-center overflow-x-clip! lg:items-start text-center lg:text-left mb-8">
         <h1 className="text-3xl font-bold text-zinc-900 mb-2">

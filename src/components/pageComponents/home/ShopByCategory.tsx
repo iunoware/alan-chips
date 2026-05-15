@@ -7,8 +7,8 @@ const ShopByCategory = () => {
     {
       title: "Best Loved Classics",
       images: [
-        "/images/alan-chips.png",
-        "/images/plaintain-no-bg.png",
+        "/images/best-chips-shop-in-tenkasi.png",
+        "/images/buy-banana-chips-in-tenkasi.png",
         "/images/potato-salted-chips.png",
       ],
     },

@@ -24,8 +24,6 @@ const Footer = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Subtle entrance animation for content
-      // just something for the commit
       gsap.from(".footer-content > div", {
         y: 30,
         opacity: 0,
@@ -61,7 +59,7 @@ const Footer = () => {
     { name: "Home", href: "/" },
     { name: "About Heritage", href: "/about" },
     { name: "Product Range", href: "/chips" },
-    // { name: "Global Presence", href: "/presence" },
+    { name: "Blogs", href: "/blogs" },
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -80,7 +78,6 @@ const Footer = () => {
       ref={footerRef}
       className="relative w-full overflow-hidden bg-center bg-cover pt-14 pb-12 border-t border-black/5"
     >
-      {/* <div className="absolute inset-0 h-full w-full bg-[url('/images/alan-chips-about.webp')] backdrop-blur-2xl"></div> */}
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-2">
           {/* Brand Story Column */}

@@ -44,7 +44,7 @@ const products: Product[] = [
     tamName: "நேந்திரம் பழம் சிப்ஸ்",
     description:
       "Sweet and savory sliced plantains, perfectly fried for a satisfying crunch that brings the taste of Kerala to your doorstep.",
-    image: "/images/plaintain.png",
+    image: "/images/nendran-banana-chips-in-tenkasi.png",
     price: 35,
     weight: "100g",
     tag: "Classic",
@@ -80,7 +80,7 @@ const products: Product[] = [
     tamName: "உருளைக்கிழங்கு உப்பு சிப்ஸ்",
     description:
       "The timeless classic—light, airy potato chips with just the right amount of sea salt to keep you coming back for more.",
-    image: "/images/potato.png",
+    image: "/images/freshly-made-chips-in-tenkasi.png",
     price: 40,
     weight: "100g",
     tag: "Classic",

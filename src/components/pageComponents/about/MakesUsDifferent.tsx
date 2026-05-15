@@ -165,10 +165,11 @@ export default function MakesUsDifferent() {
             </h2>
 
             <p className="font-sans text-black/60 text-lg md:text-xl leading-relaxed max-w-lg mx-auto mb-12">
-              Every batch of Alan Chips is crafted with purpose — rooted in decades-old
-              methods, made using carefully selected ingredients, and prepared fresh the
-              way it always has been. No shortcuts. No preservatives. Just honest flavors
-              that turn a simple crunch into a lasting memory.
+              Every batch of Alan Chips is crafted with purpose — rooted in
+              decades-old methods, made using carefully selected ingredients,
+              and prepared fresh the way it always has been. No shortcuts. No
+              preservatives. Just honest flavors that turn a simple crunch into
+              a lasting memory.
             </p>
 
             {/* <div className="relative group inline-block">
@@ -185,7 +186,7 @@ export default function MakesUsDifferent() {
             className="w-full lg:w-1/4 h-100 lg:h-150 relative order-3 lg:mb-24 shadow-2xl overflow-hidden group"
           >
             <Image
-              src="/images/alan-chips-hero-2.webp"
+              src="/images/kerala-banana-chips-in-tenkasi.webp"
               alt="Elegant Table Setting"
               fill
               className="object-cover transition-all duration-1000 scale-105 group-hover:scale-100"

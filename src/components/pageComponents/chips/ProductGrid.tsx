@@ -44,7 +44,7 @@ const products: Product[] = [
     tamName: "நேந்திரம் பழம் சிப்ஸ்",
     description:
       "Sweet and savory sliced plantains, perfectly fried for a satisfying crunch that brings the taste of Kerala to your doorstep.",
-    image: "/images/products/plantain-chips.webp",
+    image: "/images/nendran-banana-chips-in-tenkasi.png",
     price: 35,
     weight: "100g",
     tag: "Classic",
@@ -80,7 +80,7 @@ const products: Product[] = [
     tamName: "உருளைக்கிழங்கு உப்பு சிப்ஸ்",
     description:
       "The timeless classic—light, airy potato chips with just the right amount of sea salt to keep you coming back for more.",
-    image: "/images/products/potato-salted-chips.webp",
+    image: "/images/freshly-made-chips-in-tenkasi.png",
     price: 40,
     weight: "100g",
     tag: "Classic",
@@ -236,10 +236,6 @@ const ProductModal = ({
     }
   };
 
-  // ✅ THE FIX: createPortal mounts the modal directly onto document.body.
-  // This completely escapes the CSS stacking context created by the card's
-  // transform (hover:-translate-y-2), which was trapping the modal behind
-  // sibling cards regardless of how high z-index was set.
   return createPortal(
     <div className="fixed inset-0 z-9999 flex items-center justify-center p-4 md:p-6">
       {/* Backdrop */}
@@ -445,6 +441,13 @@ const ProductCard = ({
     });
   };
 
+  // WhatsApp redirect for Baking Essentials
+  const sendToWhatsApp = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const phone = "919952738678";
+    const message = `Hi I would like to order:%0A${product.name} - Quantity: ${quantity}`;
+    window.open(`https://wa.me/${phone}?text=${message}`);
+  };
   return (
     <div
       onClick={() => onOpen(product)}
@@ -525,7 +528,9 @@ const ProductCard = ({
             </button>
           </div>
           <button
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              sendToWhatsApp(e);
+            }}
             className="flex-[1.5] bg-green-700 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 hover:bg-green-800 transition-all duration-300 active:scale-95 shadow-sm"
           >
             Buy now

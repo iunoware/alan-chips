@@ -84,7 +84,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full bg-[url('/images/alan-chips-about.webp')] bg-center bg-cover flex flex-col lg:items-start items-center justify-center px-6 pt-20 overflow-hidden"
+      className="relative min-h-screen w-full bg-[url('/images/homemade-chips-in-tenkasi.webp')] bg-center bg-cover flex flex-col lg:items-start items-center justify-center px-6 pt-20 overflow-hidden"
       // className="relative min-h-screen w-full bg-green flex flex-col items-center justify-center px-6 pt-20 overflow-hidden"
     >
       <div
@@ -93,7 +93,7 @@ export default function Hero() {
       >
         <div className="relative w-full max-w-4xl aspect-square opacity-30 blur-2xl lg:blur-3xl">
           <Image
-            src="/images/alan_chips_pieces.png"
+            src="/images/banana-chips-in-tenkasi.png"
             alt=""
             fill
             className="object-contain grayscale"
@@ -113,7 +113,10 @@ export default function Hero() {
             >
               Established 1960
             </span>
-            <div ref={lineRef} className="w-12 h-[1.5px] bg-green mt-4 origin-center" />
+            <div
+              ref={lineRef}
+              className="w-12 h-[1.5px] bg-green mt-4 origin-center"
+            />
           </div>
 
           {/* Primary Headline */}
@@ -130,8 +133,8 @@ export default function Hero() {
               ref={subtextRef}
               className="text-zinc-300 text-lg md:text-xl font-medium leading-relaxed"
             >
-              Three generations of mastery, one unwavering commitment to taste. Alan Chips
-              is a testament to the art of craftsmanship.
+              Three generations of mastery, one unwavering commitment to taste.
+              Alan Chips is a testament to the art of craftsmanship.
             </p>
           </div>
         </div>
@@ -158,7 +161,7 @@ export default function Hero() {
           {/* 2 */}
           <div className="absolute ">
             <img
-              src="/images/alan-chips.png"
+              src="/images/best-chips-shop-in-tenkasi.png"
               alt="Best chips in Tamil Nadu"
               className="drop-shadow-2xl h-100 scale-100 z-20 translate-x-0 -translate-y-10"
             />

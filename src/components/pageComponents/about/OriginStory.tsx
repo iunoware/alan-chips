@@ -55,7 +55,10 @@ export default function OriginStory() {
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         {/* Left Column: Narrative Content */}
-        <div ref={contentRef} className="lg:col-span-7 flex flex-col items-start">
+        <div
+          ref={contentRef}
+          className="lg:col-span-7 flex flex-col items-start"
+        >
           {/* Section Label */}
           <div className="flex items-center gap-4 mb-8">
             <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-zinc-400">
@@ -73,16 +76,18 @@ export default function OriginStory() {
           {/* Body Content */}
           <div className="flex flex-col gap-8 max-w-xl">
             <p className="text-zinc-500 text-lg md:text-xl font-medium leading-relaxed">
-              In 1960, the goal wasn&apos;t to build a legacy. It was simply to refine the
-              process of making a chip that felt honest, consistent, and clean.
+              In 1960, the goal wasn&apos;t to build a legacy. It was simply to
+              refine the process of making a chip that felt honest, consistent,
+              and clean.
             </p>
             <p className="text-zinc-500 text-lg md:text-xl font-medium leading-relaxed">
-              Beginning in a small space with modest tools, our early efforts focused on
-              the discipline of technique rather than the speed of growth.
+              Beginning in a small space with modest tools, our early efforts
+              focused on the discipline of technique rather than the speed of
+              growth.
             </p>
             <p className="text-zinc-500 text-lg md:text-xl font-medium leading-relaxed">
-              This restrained approach allowed the taste to speak for itself, earning
-              trust slowly, through generations of quiet excellence.
+              This restrained approach allowed the taste to speak for itself,
+              earning trust slowly, through generations of quiet excellence.
             </p>
           </div>
         </div>
@@ -94,7 +99,7 @@ export default function OriginStory() {
         >
           <div className="relative w-full h-full max-w-md group">
             <Image
-              src="/images/alan-chips-bowl.png"
+              src="/images/fresh-chips-in-tenkasi.png"
               alt="Contextual heritage visual"
               fill
               className="object-contain"
@@ -112,7 +117,9 @@ export default function OriginStory() {
 
       {/* Subtle Year Marker/Accent */}
       <div className="absolute top-1/2 right-10 -translate-y-1/2 opacity-[0.03] pointer-events-none hidden lg:block">
-        <span className="text-[20vw] font-bold leading-none text-green">ALAN</span>
+        <span className="text-[20vw] font-bold leading-none text-green">
+          ALAN
+        </span>
       </div>
     </section>
   );

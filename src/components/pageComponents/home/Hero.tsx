@@ -91,20 +91,20 @@ export default function Hero() {
         {/* left text */}
         <div className="w-full fade-in-text flex justify-start translate-y-60 ml-20">
           <h2 className="max-w-100 text-xl font-bold">
-            Rooted in tradition and refined for modern tastes, Alan chips
-            delivers trusted quality and timeless flavor.
+            Rooted in tradition and refined for modern tastes, Alan chips delivers trusted
+            quality and timeless flavor.
           </h2>
         </div>
 
         {/* premium badge */}
         <div className="w-full -translate-y-40 flex absolute fade-in-text justify-end">
-          <div className="relative flex justify-center items-center h-60">
+          <div className="relative flex justify-center items-center h-60 w-60">
             <img
               src="/images/tapioca-chips-in-tenkasi.png"
               alt="Premium quality chips in Tamil Nadu"
-              className="h-full w-full rotating"
+              className="h-full w-full rotating flex justify-center items-center"
             />
-            <h3 className="absolute text-xl pl-3 font-bold text-white ">
+            <h3 className="absolute text-xl pl-3 font-bold text-white text-center">
               Premium <br />
               Quality
             </h3>
@@ -137,24 +137,24 @@ export default function Hero() {
               <h2 className="text-3xl">Rooted in Tradition Since 1960</h2>
               <ul className="list-disc ml-5 space-y-4">
                 <li>
-                  Began over 66 years ago in Kerala, pioneering plantain chips
-                  for commercial production.
+                  Began over 66 years ago in Kerala, pioneering plantain chips for
+                  commercial production.
                 </li>
                 <li>
-                  Introduced a new standard in thin-sliced plantain, potato,
-                  tapioca, and jackfruit chips.
+                  Introduced a new standard in thin-sliced plantain, potato, tapioca, and
+                  jackfruit chips.
                 </li>
                 <li>
-                  Established in June 1960 as SAN Chips, Courtallam, earning
-                  deep customer trust.
+                  Established in June 1960 as SAN Chips, Courtallam, earning deep customer
+                  trust.
                 </li>
                 <li>
-                  Today, Alan Chips in Ilanji, Tenkasi District, is known for
-                  freshly prepared, authentic chips.
+                  Today, Alan Chips in Ilanji, Tenkasi District, is known for freshly
+                  prepared, authentic chips.
                 </li>
                 <li>
-                  The name Alan Chips stands for one promise: a delicious snack,
-                  made the right way.
+                  The name Alan Chips stands for one promise: a delicious snack, made the
+                  right way.
                 </li>
               </ul>
               <p>— Alan Food Company</p>
@@ -166,25 +166,18 @@ export default function Hero() {
             <div className="w-120 space-y-5">
               <h2 className="text-3xl">About Alan Chips</h2>
               <ul className="list-disc ml-5 space-y-4">
+                <li>Stands for quality, tradition, and irresistible taste since 1960.</li>
                 <li>
-                  Stands for quality, tradition, and irresistible taste since
-                  1960.
+                  Crafted with carefully selected ingredients and decades of expertise.
+                </li>
+                <li>Every bite delivers authentic flavor with consistent excellence.</li>
+                <li>
+                  Rooted in tradition yet refined for modern tastes, blending heritage
+                  with innovation.
                 </li>
                 <li>
-                  Crafted with carefully selected ingredients and decades of
-                  expertise.
-                </li>
-                <li>
-                  Every bite delivers authentic flavor with consistent
-                  excellence.
-                </li>
-                <li>
-                  Rooted in tradition yet refined for modern tastes, blending
-                  heritage with innovation.
-                </li>
-                <li>
-                  From the House of Joy Foods, a trusted symbol of freshness,
-                  reliability, and uncompromised quality.
+                  From the House of Joy Foods, a trusted symbol of freshness, reliability,
+                  and uncompromised quality.
                 </li>
               </ul>
             </div>

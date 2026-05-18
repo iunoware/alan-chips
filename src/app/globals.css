@@ -52,6 +52,7 @@ body {
 
 .rotating {
   animation: rotation 10s linear infinite;
+  transform-origin: center;
 }
 
 @keyframes rotation {

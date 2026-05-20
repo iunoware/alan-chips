@@ -662,6 +662,323 @@ const blogData = [
       },
     ],
   },
+  // 3
+  {
+    id: 3,
+
+    metaTitle:
+      "Traditional South Indian Snacks Everyone Should Try | Alan Chips",
+
+    metaDescription:
+      "Explore the most popular traditional South Indian snacks including crispy banana chips, tea-time snacks, and authentic Kerala snacks. Discover tasty and fresh snack varieties with Alan Chips.",
+
+    title: "Traditional South Indian Snacks Everyone Should Try",
+
+    url: "traditional-south-indian-snacks-everyone-should-try",
+
+    summary:
+      "Discover the most loved traditional South Indian snacks including banana chips, crispy tea-time snacks, and authentic homemade-style snacks popular across Tamil Nadu and Kerala.",
+
+    image: "/images/traditional-south-indian-snacks.webp",
+
+    alt: "traditional South Indian snacks and banana chips",
+
+    category: "South Indian Snacks",
+
+    date: "May 20, 2026",
+
+    fullContent: [
+      {
+        type: "paragraph",
+        text: (
+          <>
+            <strong>Traditional South Indian snacks</strong> are loved for their
+            crispy texture, authentic flavor, and rich cultural connection. From
+            crunchy banana chips to spicy mixtures and tea-time snacks, South
+            India offers a wide variety of tasty snacks enjoyed by people of all
+            ages.
+          </>
+        ),
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Across Tamil Nadu and Kerala, freshly prepared snacks continue to be
+            a favorite choice for families, festivals, travel, and evening tea
+            breaks. Their homemade-style taste and freshness make them one of
+            the most popular snack varieties in South India.
+          </>
+        ),
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "1. Banana Chips – The Most Popular South Indian Snack",
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            <strong>Banana chips</strong> are one of the most famous{" "}
+            <strong>South Indian snacks</strong>. Made using fresh raw bananas
+            and quality cooking oil, these crispy snacks are known for their
+            perfect crunch and authentic flavor.
+          </>
+        ),
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            <strong>Kerala banana chips</strong> are especially popular because
+            of their traditional preparation style and homemade taste. They are
+            commonly enjoyed during tea time, travel, and festive occasions.
+          </>
+        ),
+      },
+
+      {
+        type: "list",
+        items: [
+          "Perfect tea-time snack",
+          "Crispy and crunchy texture",
+          "Traditional homemade-style flavor",
+          "Loved by all age groups",
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "2. Murukku – A Traditional Crispy Favorite",
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Murukku is another iconic <strong>Tamil Nadu snack</strong> prepared
+            using rice flour and spices. Its spiral shape and crunchy texture
+            make it one of the most loved traditional crispy snacks in South
+            India.
+          </>
+        ),
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            This snack is commonly prepared during festivals and family
+            functions, making it an important part of South Indian food culture.
+          </>
+        ),
+      },
+
+      {
+        type: "image",
+        path: "/images/south-indian-snacks-variety.webp",
+        alt: "traditional South Indian tea snacks",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "3. Mixture Snacks – Spicy and Crunchy Delight",
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Mixture snacks combine fried lentils, peanuts, curry leaves, and
+            crunchy ingredients to create flavorful{" "}
+            <strong>South Indian tea snacks</strong>. These snacks are known for
+            their spicy taste and crispy texture.
+          </>
+        ),
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Freshly prepared mixture snacks are a favorite choice during rainy
+            evenings and family gatherings.
+          </>
+        ),
+      },
+
+      {
+        type: "list",
+        items: [
+          "Rich spicy flavor",
+          "Crunchy texture",
+          "Popular evening snack",
+          "Perfect with tea or coffee",
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "4. Why Traditional Snacks Are Still Popular",
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Even with the rise of modern packaged foods,{" "}
+            <strong>traditional South Indian snacks</strong> continue to remain
+            popular because of their authentic taste and freshness.
+          </>
+        ),
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Many people prefer freshly made snacks because they provide better
+            flavor, crunch, and a nostalgic homemade-style experience.
+          </>
+        ),
+      },
+
+      {
+        type: "table",
+        headers: ["Snack Type", "Popular Region", "Best Feature"],
+        rows: [
+          ["Banana Chips", "Kerala & Tamil Nadu", "Crispy Texture"],
+          ["Murukku", "Tamil Nadu", "Crunchy Flavor"],
+          ["Mixture", "South India", "Spicy Taste"],
+          ["Tea-Time Snacks", "Across South India", "Perfect Evening Snack"],
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "5. Best Tea-Time Snacks in South India",
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            <strong>Tea time snacks</strong> play an important role in South
+            Indian households. Crispy snacks like banana chips, murukku, and
+            spicy mixtures are commonly served alongside tea or coffee during
+            evening breaks.
+          </>
+        ),
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Their crunchy texture and flavorful taste make them one of the best
+            snacks for family gatherings and guests.
+          </>
+        ),
+      },
+
+      {
+        type: "list",
+        items: [
+          "Perfect for evening tea",
+          "Easy to serve guests",
+          "Loved by kids and adults",
+          "Traditional homemade-style taste",
+        ],
+      },
+
+      {
+        type: "faq",
+        content: [
+          {
+            question: "What are the most popular South Indian snacks?",
+            answer:
+              "Banana chips, murukku, mixture snacks, and traditional tea-time snacks are some of the most popular South Indian snacks.",
+          },
+          {
+            question: "Why are banana chips famous in South India?",
+            answer:
+              "Banana chips are popular because of their crispy texture, authentic flavor, and traditional preparation style.",
+          },
+          {
+            question: "Which snacks are best for tea time?",
+            answer:
+              "Banana chips, murukku, and spicy mixture snacks are excellent tea-time snacks enjoyed across South India.",
+          },
+          {
+            question: "What makes traditional snacks special?",
+            answer:
+              "Traditional snacks are known for their authentic homemade-style taste, freshness, and cultural value.",
+          },
+          {
+            question: "Are South Indian snacks healthy?",
+            answer:
+              "Freshly prepared South Indian snacks made using quality ingredients can be a tasty snack option when enjoyed in moderation.",
+          },
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "Why Choose Alan Chips?",
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Alan Chips focuses on preparing fresh and crispy{" "}
+            <strong>traditional banana chips</strong> and authentic South Indian
+            snacks using quality ingredients and hygienic preparation methods.
+            Our snacks are made to deliver homemade-style flavor and premium
+            crunch in every bite.
+          </>
+        ),
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "Conclusion",
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            From crispy banana chips to spicy mixture snacks,{" "}
+            <strong>traditional South Indian snacks</strong> continue to remain
+            a favorite among snack lovers across India.
+          </>
+        ),
+      },
+
+      {
+        type: "paragraph",
+        text: (
+          <>
+            Their authentic flavor, crunchy texture, and homemade-style
+            freshness make them the perfect snack choice for tea time, travel,
+            festivals, and family gatherings.
+          </>
+        ),
+      },
+    ],
+  },
 ];
 
 // use 16th blog for reference

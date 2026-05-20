@@ -64,13 +64,17 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <Instagram size={18} />, href: "", name: "Instagram" },
+    {
+      icon: <Instagram size={18} />,
+      href: "https://www.instagram.com/alan_chips_",
+      name: "Instagram",
+    },
     {
       icon: <Facebook size={18} />,
       href: "https://www.facebook.com/alanchipsilanji/",
       name: "Facebook",
     },
-    { icon: <Twitter size={18} />, href: "", name: "Twitter" },
+    // { icon: <Twitter size={18} />, href: "", name: "Twitter" },
   ];
 
   return (

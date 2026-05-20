@@ -12,6 +12,7 @@ import {
   Facebook,
   Twitter,
   Linkedin,
+  Instagram,
 } from "lucide-react";
 import blogData from "../blogData";
 
@@ -461,6 +462,46 @@ export default function BlogDetails() {
     // Native smooth scrolling relies on CSS sticky
   }, []);
 
+  // Get these values from your blog post data
+  const postTitle = "Your Blog Post Title"; // or post.title
+  const postUrl = typeof window !== "undefined" ? window.location.href : "";
+
+  const handleNativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: postTitle,
+          url: postUrl,
+        });
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          // Fallback: copy to clipboard
+          await navigator.clipboard.writeText(postUrl);
+          alert("Link copied to clipboard!");
+        }
+      }
+    } else {
+      // Fallback for desktop browsers
+      await navigator.clipboard.writeText(postUrl);
+      alert("Link copied to clipboard!");
+    }
+  };
+
+  const handleFacebookShare = () => {
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`;
+    window.open(facebookUrl, "_blank", "width=600,height=400");
+  };
+
+  const handleTwitterShare = () => {
+    const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(postTitle)}`;
+    window.open(twitterUrl, "_blank", "width=600,height=400");
+  };
+
+  const handleLinkedInShare = () => {
+    const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
+    window.open(linkedInUrl, "_blank", "width=600,height=400");
+  };
+
   return (
     <div className="bg-[#fcfbf8] selection:bg-amber-200 selection:text-amber-900 font-sans flex flex-col min-h-screen">
       {/* <ScrollProgress /> */}
@@ -580,7 +621,7 @@ export default function BlogDetails() {
 
           {/* RIGHT COLUMN - Fixed Share */}
           <aside className="hidden xl:block w-24 shrink-0 relative border-l border-gray-100 bg-[#fcfbf8]">
-            <div className="sticky top-[76px] h-[calc(100vh-76px)] overflow-y-auto scrollbar-hide flex-col items-center py-12 pb-32 flex">
+            <div className="sticky top-19 h-[calc(100vh-76px)] overflow-y-auto scrollbar-hide flex-col items-center py-12 pb-32 flex">
               <div className="flex flex-col gap-6 items-center w-full">
                 <span
                   className="text-xs font-bold uppercase tracking-widest text-gray-400 rotate-180"
@@ -589,18 +630,43 @@ export default function BlogDetails() {
                   Share Article
                 </span>
                 <div className="h-16 w-px bg-gray-200" />
-                <button className="p-3 bg-white rounded-full text-gray-400 hover:text-amber-500 hover:shadow-md transition-all border border-gray-100 group">
+
+                {/* Native Share (Web Share API) */}
+                <button
+                  onClick={handleNativeShare}
+                  className="p-3 bg-white rounded-full text-gray-400 hover:text-amber-500 hover:shadow-md transition-all border border-gray-100 group"
+                  aria-label="Share article"
+                >
                   <Share2 className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </button>
-                <button className="p-3 bg-white rounded-full text-gray-400 hover:text-blue-600 hover:shadow-md transition-all border border-gray-100 group">
-                  <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                </button>
-                <button className="p-3 bg-white rounded-full text-gray-400 hover:text-sky-500 hover:shadow-md transition-all border border-gray-100 group">
+
+                {/* Instagram */}
+                <Link
+                  href="https://www.instagram.com/alan_chips_"
+                  target="_blank"
+                  className="p-3 bg-white rounded-full text-gray-400 hover:text-blue-600 hover:shadow-md transition-all border border-gray-100 group"
+                  aria-label="Share on Facebook"
+                >
+                  <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                </Link>
+
+                {/* whatsapp */}
+                {/* <button
+                  onClick={handleTwitterShare}
+                  className="p-3 bg-white rounded-full text-gray-400 hover:text-sky-500 hover:shadow-md transition-all border border-gray-100 group"
+                  aria-label="Share on Twitter"
+                >
                   <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                </button>
-                <button className="p-3 bg-white rounded-full text-gray-400 hover:text-blue-700 hover:shadow-md transition-all border border-gray-100 group">
+                </button> */}
+
+                {/* LinkedIn */}
+                {/* <button
+                  onClick={handleLinkedInShare}
+                  className="p-3 bg-white rounded-full text-gray-400 hover:text-blue-700 hover:shadow-md transition-all border border-gray-100 group"
+                  aria-label="Share on LinkedIn"
+                >
                   <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                </button>
+                </button> */}
               </div>
             </div>
           </aside>

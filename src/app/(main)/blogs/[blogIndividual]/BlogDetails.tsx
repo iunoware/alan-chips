@@ -36,42 +36,7 @@ const slugify = (text: string) => {
     .replace(/(^-|-$)+/g, "");
 };
 
-const ScrollProgress = () => {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const updateProgress = () => {
-      const scrollPx = document.documentElement.scrollTop;
-      const winHeightPx =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-
-      if (winHeightPx > 0) {
-        setProgress((scrollPx / winHeightPx) * 100);
-      }
-    };
-
-    window.addEventListener("scroll", updateProgress);
-    window.addEventListener("resize", updateProgress);
-    updateProgress();
-
-    return () => {
-      window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
-    };
-  }, []);
-
-  return (
-    <div className="fixed top-16 md:top-[76px] left-0 w-full h-1 bg-gray-100 z-50">
-      <div
-        className="h-full bg-amber-500 transition-all duration-150 ease-out"
-        style={{ width: `${progress}%` }}
-      />
-    </div>
-  );
-};
-
-const BlogHero = ({ blog }: { blog: any }) => {
+const BlogHero = ({ blog }: { blog: unknown }) => {
   return (
     <div className="relative w-full min-h-[60vh] md:min-h-screen flex flex-col justify-end pb-16 px-6 lg:px-12">
       {/* Background Image & Gradient */}
@@ -410,7 +375,7 @@ const BlogRelated = ({ currentUrl }: { currentUrl: string }) => {
                       {post.category}
                     </span>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none"></div>
                 </div>
                 <div className="p-8 flex flex-col grow">
                   <span className="text-sm text-gray-500 font-medium mb-3 flex items-center gap-2">
@@ -458,48 +423,39 @@ export default function BlogDetails() {
     );
   }
 
-  useEffect(() => {
-    // Native smooth scrolling relies on CSS sticky
-  }, []);
-
   // Get these values from your blog post data
-  const postTitle = "Your Blog Post Title"; // or post.title
-  const postUrl = typeof window !== "undefined" ? window.location.href : "";
+  // Replace the existing handler functions with these improved versions
+  const postTitle = selectedBlog.title;
+  const postUrl =
+    typeof window !== "undefined"
+      ? window.location.href
+      : `https://alanchips.com/blogs/${selectedBlog.url}`; // Replace with your actual domain
 
   const handleNativeShare = async () => {
+    if (typeof window === "undefined") return;
+
+    const shareUrl = window.location.href;
+
     if (navigator.share) {
       try {
         await navigator.share({
           title: postTitle,
+          text: `hey check this out - ${postTitle} `,
           url: postUrl,
         });
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
         if (error.name !== "AbortError") {
           // Fallback: copy to clipboard
-          await navigator.clipboard.writeText(postUrl);
+          await navigator.clipboard.writeText(shareUrl);
           alert("Link copied to clipboard!");
         }
       }
     } else {
       // Fallback for desktop browsers
-      await navigator.clipboard.writeText(postUrl);
+      await navigator.clipboard.writeText(shareUrl);
       alert("Link copied to clipboard!");
     }
-  };
-
-  const handleFacebookShare = () => {
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`;
-    window.open(facebookUrl, "_blank", "width=600,height=400");
-  };
-
-  const handleTwitterShare = () => {
-    const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(postTitle)}`;
-    window.open(twitterUrl, "_blank", "width=600,height=400");
-  };
-
-  const handleLinkedInShare = () => {
-    const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
-    window.open(linkedInUrl, "_blank", "width=600,height=400");
   };
 
   return (

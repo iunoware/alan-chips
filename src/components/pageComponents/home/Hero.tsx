@@ -1,6 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+// dummy commit f0r checking proper hosting 1
+// dummy commit f0r checking proper hosting 2
+// dummy commit f0r checking proper hosting 3
+
 import { useRef } from "react";
 // import Link from "next/link";
 import { gsap } from "gsap";

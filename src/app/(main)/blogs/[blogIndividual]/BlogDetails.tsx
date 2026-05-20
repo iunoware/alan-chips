@@ -36,7 +36,10 @@ const slugify = (text: string) => {
     .replace(/(^-|-$)+/g, "");
 };
 
-const BlogHero = ({ blog }: { blog: unknown }) => {
+// for pushing
+// for pushing
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const BlogHero = ({ blog }: { blog: any }) => {
   return (
     <div className="relative w-full min-h-[60vh] md:min-h-screen flex flex-col justify-end pb-16 px-6 lg:px-12">
       {/* Background Image & Gradient */}

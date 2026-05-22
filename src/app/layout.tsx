@@ -1,10 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  Cinzel_Decorative,
-  Poppins,
-} from "next/font/google";
+import { Geist, Geist_Mono, Cinzel_Decorative, Poppins } from "next/font/google";
 import "./globals.css";
 // import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
@@ -40,21 +36,47 @@ export const metadata = {
   title: "Alan Chips | Premium Crispy Potato Chips & Tasty Snacks",
   description:
     "Discover Alan Chips for crispy potato chips, delicious flavors, quality ingredients, and fresh snacks made for every craving. Taste the crunch everyone loves.",
+
+  // google verification
+  verification: {
+    google: "SyqnaXv6cRlofSH9oTaSs0kGzwtcsdIjHOYQ7q5_3JE",
+  },
+  // conical tag
+  metadataBase: new URL("https://alanchips.com/"),
 };
 
 import { CartProvider } from "@/context/CartContext";
 
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   return (
+//     <html lang="en">
+//       <body
+//         className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${poppins.variable} antialiased`}
+//       >
+//         <main className="">{children}</main>
+//       </body>
+//     </html>
+//   );
+// }
+
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${poppins.variable} antialiased`}
       >
-        <main className="">{children}</main>
+        <CartProvider>
+          {/* <Navbar /> */}
+          {children}
+          {/* <Cta /> */}
+          {/* <Footer /> */}
+        </CartProvider>
       </body>
     </html>
   );

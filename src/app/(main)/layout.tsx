@@ -1,10 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  Cinzel_Decorative,
-  Poppins,
-} from "next/font/google";
+import { Geist, Geist_Mono, Cinzel_Decorative, Poppins } from "next/font/google";
 // import "./globals.css";
 // import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
@@ -34,16 +30,16 @@ const cinzelDecorative = Cinzel_Decorative({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Alan Chips",
-  description: "Alan Chips | Best chips company in Tamilnadu",
+// export const metadata: Metadata = {
+//   title: "Alan Chips",
+//   description: "Alan Chips | Best chips company in Tamilnadu",
 
-  // google search console verification
-  verification: {
-    google: "SyqnaXv6cRlofSH9oTaSs0kGzwtcsdIjHOYQ7q5_3JE",
-  },
-  metadataBase: new URL("https://alanchips.com/"),
-};
+//   // google search console verification
+//   verification: {
+//     google: "SyqnaXv6cRlofSH9oTaSs0kGzwtcsdIjHOYQ7q5_3JE",
+//   },
+//   metadataBase: new URL("https://alanchips.com/"),
+// };
 
 import { CartProvider } from "@/context/CartContext";
 

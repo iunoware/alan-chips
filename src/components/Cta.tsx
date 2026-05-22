@@ -4,16 +4,12 @@ import Link from "next/link";
 
 const Cta = () => {
   return (
-    <section className="relative w-full min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden py-24 md:py-32">
+    <section className="relative w-full h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden py-24 md:py-32">
       {/* Background Image Container */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transform scale-100"
         style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
       />
-
-      {/* Subtle Overlay: dark-to-transparent gradient as requested to improve contrast */}
-      {/* <div className="absolute inset-0 bg-black/35 pointer-events-none" /> */}
-      {/* <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/20 pointer-events-none" /> */}
 
       {/* CTA Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center">

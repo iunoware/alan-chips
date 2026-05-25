@@ -6,7 +6,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Cta from "@/components/Cta";
-import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+// import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],

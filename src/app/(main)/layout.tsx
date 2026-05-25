@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel_Decorative, Poppins } from "next/font/google";
 // import "./globals.css";
@@ -6,7 +5,7 @@ import { Geist, Geist_Mono, Cinzel_Decorative, Poppins } from "next/font/google"
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Cta from "@/components/Cta";
-import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+// import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -55,11 +54,11 @@ export default function RootLayout({
       >
         <CartProvider>
           <Navbar />
-          <SmoothScrollProvider>
-            <main className="">{children}</main>
-            <Cta />
-            <Footer />
-          </SmoothScrollProvider>
+          {/* <SmoothScrollProvider> */}
+          <main className="">{children}</main>
+          <Cta />
+          <Footer />
+          {/* </SmoothScrollProvider> */}
         </CartProvider>
       </body>
     </html>

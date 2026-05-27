@@ -7,7 +7,9 @@ import { useRef } from "react";
 import Link from "next/link";
 // import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 //
 export default function Hero2() {
   const containerRef = useRef<HTMLElement>(null);

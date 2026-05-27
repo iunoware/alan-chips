@@ -123,9 +123,7 @@ const BlogTOC = ({ blocks }: { blocks: Block[] }) => {
                 href={`#${slug}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  document
-                    .getElementById(slug)
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  document.getElementById(slug)?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className={`block text-sm transition-all duration-300 ${
                   isActive
@@ -143,11 +141,7 @@ const BlogTOC = ({ blocks }: { blocks: Block[] }) => {
   );
 };
 
-const BlogFAQ = ({
-  content,
-}: {
-  content: { question: string; answer: string }[];
-}) => {
+const BlogFAQ = ({ content }: { content: { question: string; answer: string }[] }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -292,10 +286,7 @@ const BlogContent = ({ blocks }: { blocks: Block[] }) => {
                         className="bg-white hover:bg-gray-50/50 transition-colors"
                       >
                         {row.map((column, c) => (
-                          <td
-                            key={c}
-                            className="p-6 text-gray-700 font-medium text-lg"
-                          >
+                          <td key={c} className="p-6 text-gray-700 font-medium text-lg">
                             {column}
                           </td>
                         ))}
@@ -310,7 +301,7 @@ const BlogContent = ({ blocks }: { blocks: Block[] }) => {
         if (block.type === "image") {
           return (
             <figure key={i} className="my-16 group">
-              <div className="relative w-full aspect-[4/3] sm:aspect-video md:aspect-[2/1] rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+              <div className="relative w-full aspect-4/3 sm:aspect-video md:aspect-2/1 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
                 <Image
                   fill
                   src={block.path || ""}
@@ -413,10 +404,7 @@ export default function BlogDetails() {
           <h1 className="text-4xl font-serif font-bold text-gray-900 mb-4">
             Article Not Found
           </h1>
-          <Link
-            href="/blogs"
-            className="text-amber-600 font-semibold hover:underline"
-          >
+          <Link href="/blogs" className="text-amber-600 font-semibold hover:underline">
             &larr; Back to all blogs
           </Link>
         </div>

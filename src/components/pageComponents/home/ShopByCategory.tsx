@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-const ShopByCategory = () => {
+export default function ShopByCategory() {
   const chipsCategory = [
     {
       title: "Best Loved Classics",
@@ -32,13 +31,9 @@ const ShopByCategory = () => {
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-clip relative w-full bg-linear-to-br from-green from-60% to-green/50 py-10">
-      {/* Background SVG - Adjusted color for visibility */}
+      {/* Background SVG */}
       <div className="absolute inset-0 -top-15 md:-top-40 left-0 pointer-events-none">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          className="w-full"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
           <path
             fill="#017432"
             fillOpacity="1"
@@ -48,43 +43,40 @@ const ShopByCategory = () => {
       </div>
 
       {/* Text Content */}
-      <div className="flex flex-col items-center justify-center relative z-20 ">
+      <div className="flex flex-col items-center justify-center relative z-20">
         <h2 className="text-6xl text-white text-center font-bold tracking-tight">
           Shop By Category
         </h2>
         <p className="text-lg pt-4 text-white/80 text-center max-w-lg">
-          Explore our wide range of authentic chips, crafted with traditional
-          recipes and the finest ingredients.
+          Explore our wide range of authentic chips, crafted with traditional recipes and
+          the finest ingredients.
         </p>
       </div>
 
       {/* Category Grid */}
-      <div className="flex-1 flex items-center justify-center relative z-50! px-10">
+      <div className="flex-1 flex items-center justify-center relative z-50! px-10 mt-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 w-full max-w-7xl">
           {chipsCategory.map((chip, index) => (
-            <div
-              key={index}
-              className="group flex flex-col items-center justify-center"
-            >
-              {/* Image Container with fixed height/width to prevent collapse */}
-              <div className="relative h-70 md:h-87.5 w-full flex items-center justify-center mb-8">
+            <div key={index} className="group flex flex-col items-center justify-center">
+              {/* Image Container — aspect-ratio keeps it proportional at any width */}
+              <div className="relative w-full aspect-4/5 mb-8">
                 <Image
                   fill
                   src={chip.images[0]}
                   alt=""
-                  className="h-full w-auto z-10 absolute -rotate-2 -translate-x-8 transition-transform duration-500 group-hover:-rotate-18 group-hover:-translate-x-16"
+                  className="object-contain z-10 absolute -rotate-2 -translate-x-8 transition-transform duration-500 group-hover:-rotate-18 group-hover:-translate-x-16"
                 />
                 <Image
                   src={chip.images[1]}
                   alt=""
                   fill
-                  className="z-20 h-full w-auto absolute transition-transform duration-500 group-hover:scale-110"
+                  className="object-contain z-20 absolute transition-transform duration-500 group-hover:scale-110"
                 />
                 <Image
                   src={chip.images[2]}
                   alt=""
                   fill
-                  className="h-full w-auto z-10 absolute rotate-2 translate-x-8 transition-transform duration-500 group-hover:rotate-18 group-hover:translate-x-16"
+                  className="object-contain z-10 absolute rotate-2 translate-x-8 transition-transform duration-500 group-hover:rotate-18 group-hover:translate-x-16"
                 />
               </div>
 
@@ -104,6 +96,4 @@ const ShopByCategory = () => {
       </div>
     </div>
   );
-};
-
-export default ShopByCategory;
+}

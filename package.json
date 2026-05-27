@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && copy .htaccess out\\",
+    "build": "next build --webpack && node -e \"const fs = require('fs'); fs.copyFileSync('.htaccess', 'out/.htaccess');\"",
     "start": "next start",
     "lint": "eslint"
   },

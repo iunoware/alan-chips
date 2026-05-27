@@ -276,10 +276,10 @@ import { gsap } from "gsap";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about/" },
-  { name: "Chips", href: "/chips/" },
-  { name: "Blogs", href: "/blogs/" },
-  { name: "Contact", href: "/contact/" },
+  { name: "About", href: "/about" },
+  { name: "Chips", href: "/chips" },
+  { name: "Blogs", href: "/blogs" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {

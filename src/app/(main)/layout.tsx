@@ -66,7 +66,7 @@
 // }
 
 import Navbar from "@/components/Navbar";
-import Cta from "@/components/Cta";
+// import Cta from "@/components/Cta";
 import Footer from "@/components/Footer";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
@@ -74,7 +74,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     <>
       <Navbar />
       <main>{children}</main>
-      <Cta />
+      {/* <Cta /> */}
       <Footer />
     </>
   );

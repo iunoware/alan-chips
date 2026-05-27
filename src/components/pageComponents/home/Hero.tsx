@@ -11,7 +11,9 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -64,7 +66,7 @@ export default function Hero() {
         opacity: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: ".fade.in-text",
+          trigger: ".fade-in-text",
           start: "top 95%",
         },
       });

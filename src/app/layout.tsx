@@ -100,7 +100,7 @@ const cinzelDecorative = Cinzel_Decorative({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Alan Chips | Premium Crispy Potato Chips & Tasty Snacks",
   description:
     "Discover Alan Chips for crispy potato chips, delicious flavors, quality ingredients, and fresh snacks made for every craving. Taste the crunch everyone loves.",

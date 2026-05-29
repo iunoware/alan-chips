@@ -2,30 +2,36 @@
   RewriteEngine On
   RewriteBase /
 
-  # Serve existing files/dirs directly
+  # 1. Enforce Trailing Slash on Directory Routes
+  # If it is not a physical file, doesn't end with a slash, and is not a request for an extension, redirect to slashed version
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !(.*)/$
+  RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]+)$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
 
-  # Add trailing slash
-  RewriteCond %{REQUEST_URI} !/$
-  RewriteRule ^(.*)$ /$1/ [L,R=301]
-
-  # Serve index.txt for RSC requests
+  # 2. Serve index.txt for React Server Component (RSC) requests
+  # If the query string has _rsc or the RSC header is set, serve the text payload
   RewriteCond %{QUERY_STRING} _rsc= [OR]
   RewriteCond %{HTTP:Rsc} 1
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME}/index.txt -f
   RewriteRule ^(.*)$ $1/index.txt [L]
 
-  # Serve index.html for each route folder
-  RewriteCond %{REQUEST_FILENAME} !-f
+  # 3. Serve index.html for each directory
+  # If the request matches a folder containing index.html, serve that index.html
+  RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html -f
   RewriteRule ^(.*)$ $1/index.html [L]
 
-  # Fallback
+  # 4. Handle SPA routing / Fallbacks to 404
+  # If it is not an existing file or directory, redirect to Next.js 404 page
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . /404.html [L]
 </IfModule>
 
+# Prevent directory listings
 Options -Indexes
+
+# Configure custom 404 handling
+ErrorDocument 404 /404.html

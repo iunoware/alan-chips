@@ -34,7 +34,7 @@ const Map = () => {
         <div className="map-container relative w-full h-112.5 md:h-150 overflow-hidden rounded-sm grayscale-[0.8] opacity-90 hover:grayscale-[0.3] transition-all duration-1000 border border-black/5">
           {/* de saturated Google Map Iframe Placeholder */}
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15754.774438318856!2d77.2662973!3d8.9545927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b069d3e8e7c1e5d%3A0x7d6c5c3e8e7c1e5d!2sIlanji%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1970.6057661675488!2d77.2718432!3d8.9526463!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b042a10b8b558ff%3A0x5f8263b256db46cc!2sAlan%20Chips!5e0!3m2!1sen!2sin!4v1780056088188!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}

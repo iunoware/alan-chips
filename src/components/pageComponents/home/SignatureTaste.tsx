@@ -40,10 +40,8 @@ const flavorIdentities = [
 const SignatureTaste = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
-  const heroVisualRef = useRef<HTMLDivElement>(null);
   const flavorGridRef = useRef<HTMLDivElement>(null);
   const statementRef = useRef<HTMLDivElement>(null);
-  const varietyRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -61,24 +59,7 @@ const SignatureTaste = () => {
         stagger: 0.3,
       });
 
-      // 2. Hero Visual Parallax & Scale
-      gsap.fromTo(
-        ".st-hero-image",
-        { scale: 1.1, y: 50 },
-        {
-          scrollTrigger: {
-            trigger: heroVisualRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
-          },
-          scale: 1,
-          y: -50,
-          ease: "none",
-        },
-      );
-
-      // 3. Flavor Identity Blocks Sequential Reveal
+      // 2. Flavor Identity Blocks Sequential Reveal
       gsap.from(".st-flavor-block", {
         scrollTrigger: {
           trigger: flavorGridRef.current,
@@ -92,7 +73,7 @@ const SignatureTaste = () => {
         ease: "power2.out",
       });
 
-      // 4. Signature Statement Reveal
+      // 3. Signature Statement Reveal
       gsap.from(".st-statement-text", {
         scrollTrigger: {
           trigger: statementRef.current,
@@ -102,20 +83,6 @@ const SignatureTaste = () => {
         opacity: 0,
         duration: 2,
         ease: "power2.inOut",
-      });
-
-      // 5. Variety Tease Reveal
-      gsap.from(".st-variety-item", {
-        scrollTrigger: {
-          trigger: varietyRef.current,
-          start: "top 95%",
-          toggleActions: "play none none reverse",
-        },
-        x: 40,
-        opacity: 0,
-        duration: 1.5,
-        stagger: 0.2,
-        ease: "power3.out",
       });
     },
     { scope: containerRef },

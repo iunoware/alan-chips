@@ -90,7 +90,10 @@ export default function Navbar() {
       >
         <div className="flex h-full mx-auto max-w-360 items-center justify-between px-6 md:px-8">
           {/* Left: Brand Name */}
-          <div ref={logoRef} className="shrink-0 flex items-center justify-center">
+          <div
+            ref={logoRef}
+            className="shrink-0 flex items-center justify-center"
+          >
             <Link href="/">
               <Image
                 src="/images/alan-chips-logo-1.png"
@@ -203,7 +206,10 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between p-6 border-b border-[#d4af37]/15">
           {/* <span className="font-serif text-xl text-black tracking-wide">Menu</span> */}
-          <div ref={logoRef} className="shrink-0 flex items-center justify-center">
+          <div
+            ref={logoRef}
+            className="shrink-0 flex items-center justify-center"
+          >
             <Link href="/">
               <Image
                 src="/images/alan-chips-logo-1.png"

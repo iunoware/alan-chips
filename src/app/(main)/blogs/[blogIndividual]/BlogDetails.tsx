@@ -36,8 +36,6 @@ const slugify = (text: string) => {
     .replace(/(^-|-$)+/g, "");
 };
 
-// for pushing
-// for pushing
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const BlogHero = ({ blog }: { blog: any }) => {
   return (
@@ -420,7 +418,7 @@ export default function BlogDetails() {
   const postUrl =
     typeof window !== "undefined"
       ? window.location.href
-      : `https://alanchips.com/blogs/${selectedBlog.url}`; // Replace with your actual domain
+      : `https://alanchips.com/blogs/${selectedBlog.url}`;
 
   const handleNativeShare = async () => {
     if (typeof window === "undefined") return;

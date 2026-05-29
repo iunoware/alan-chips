@@ -96,53 +96,61 @@ const QualityProcess = () => {
       });
 
       // 3. Editorial Images Parallax
-      gsap.to(image1Ref.current, {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.2,
-        },
-        y: -120,
-        ease: "none",
-      });
+      if (image1Ref.current) {
+        gsap.to(image1Ref.current, {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.2,
+          },
+          y: -120,
+          ease: "none",
+        });
+      }
 
-      gsap.to(image2Ref.current, {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 0.6,
-        },
-        y: 80,
-        ease: "none",
-      });
+      if (image2Ref.current) {
+        gsap.to(image2Ref.current, {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.6,
+          },
+          y: 80,
+          ease: "none",
+        });
+      }
 
       // 4. Quality Promise Reveal
-      gsap.from(promiseRef.current, {
-        scrollTrigger: {
-          trigger: promiseRef.current,
-          start: "top 90%",
-          toggleActions: "play none none reverse",
-        },
-        scale: 0.98,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power4.out",
-      });
+      if (promiseRef.current) {
+        gsap.from(promiseRef.current, {
+          scrollTrigger: {
+            trigger: promiseRef.current,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+          scale: 0.98,
+          opacity: 0,
+          duration: 1.5,
+          ease: "power4.out",
+        });
+      }
 
       // 5. Sensory Description Reveal
-      gsap.from(".sensory-text", {
-        scrollTrigger: {
-          trigger: sensoryRef.current,
-          start: "top 90%",
-          toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        duration: 2,
-        ease: "power2.inOut",
-        stagger: 0.3,
-      });
+      if (sensoryRef.current) {
+        gsap.from(".sensory-text", {
+          scrollTrigger: {
+            trigger: sensoryRef.current,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 0,
+          duration: 2,
+          ease: "power2.inOut",
+          stagger: 0.3,
+        });
+      }
     },
     { scope: containerRef },
   );
